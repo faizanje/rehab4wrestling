@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 
-class HomeController extends GetxController {
-  //TODO: Implement HomeController
-  RxString injuryName= ''.obs;
-
+class AuthController extends GetxController {
+  //TODO: Implement AuthController
+  RxBool flag = false.obs;
+  RxBool isHide = false.obs;
   final count = 0.obs;
   @override
   void onInit() {

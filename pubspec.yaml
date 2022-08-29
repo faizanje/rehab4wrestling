@@ -8,10 +8,15 @@ environment:
 dependencies: 
   cupertino_icons: ^1.0.2
   better_player: any
+  glass_kit: ^2.0.1
+  human_body_selector: ^0.0.1
+  form_validator: ^1.0.2
+  flutter_expanded_tile: ^0.3.6
+  form_field_validator: ^1.1.0
+  flutter_animated_button: ^2.0.1
   get: 4.6.5
   flutter: 
     sdk: flutter
-
 dev_dependencies: 
   flutter_lints: ^1.0.0
   flutter_test: 
@@ -19,4 +24,7 @@ dev_dependencies:
 
 flutter: 
   uses-material-design: true
+  assets:
+    - assets/
+
 

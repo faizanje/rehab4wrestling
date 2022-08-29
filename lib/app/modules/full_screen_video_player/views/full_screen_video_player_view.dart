@@ -11,18 +11,29 @@ class FullScreenVideoPlayerView
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('FullScreenVideoPlayerView'),
+
+      appBar:  AppBar(
+        backgroundColor: Colors.lightGreen,
+        leading: IconButton(
+          onPressed: (){
+            Get.back();
+          },
+          icon: Icon(Icons.arrow_back_sharp,color: Colors.black,),
+        ),
+
+        title: Text('Injury Video', style: TextStyle(color: Colors.black),),
         centerTitle: true,
       ),
-      body: AspectRatio(
-        aspectRatio: 16 / 9,
-        child: BetterPlayerListVideoPlayer(
-          BetterPlayerDataSource(BetterPlayerDataSourceType.network, kMediaURL),
-          key: Key(kMediaURL.hashCode.toString()),
-          autoPlay: true,
-          configuration: BetterPlayerConfiguration(),
-          // playFraction: 0.8,
+      body: Center(
+        child: AspectRatio(
+          aspectRatio: 16 / 9,
+          child: BetterPlayerListVideoPlayer(
+            BetterPlayerDataSource(BetterPlayerDataSourceType.network, kMediaURL),
+            key: Key(kMediaURL.hashCode.toString()),
+            autoPlay: true,
+            configuration: BetterPlayerConfiguration(),
+            // playFraction: 0.8,
+          ),
         ),
       ),
     );
