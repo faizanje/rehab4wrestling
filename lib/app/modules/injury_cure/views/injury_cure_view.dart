@@ -4,6 +4,7 @@ import 'package:flutter_expanded_tile/flutter_expanded_tile.dart';
 
 import 'package:get/get.dart';
 import 'package:rehab4wrestling/app/routes/app_pages.dart';
+import 'package:rehab4wrestling/utils/constant.dart';
 import 'package:rehab4wrestling/widgets/animated_button.dart';
 
 import '../controllers/injury_cure_controller.dart';
@@ -13,37 +14,24 @@ class InjuryCureView extends GetView<InjuryCureController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffEEEFFF),
       appBar: AppBar(
-        backgroundColor: Colors.lightGreen,
+        backgroundColor: Colors.cyan,
         leading: IconButton(
           onPressed: (){
             Get.back();
           },
-          icon: Icon(Icons.arrow_back_sharp,color: Colors.black,),
+          icon: const Icon(Icons.arrow_back_sharp,color: Colors.white,),
         ),
 
-        title: Text('Injury Video List', style: TextStyle(color: Colors.black),),
+        title: const Text('Injury Video List', style: TextStyle(color: Colors.white,
+        fontFamily: MyFont.fontModernist,
+          package: 'assets:fonts/Sk-Modernist-Bold'
+        ),),
         centerTitle: true,
       ),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        padding: EdgeInsets.all(20),
-        foregroundDecoration: BoxDecoration(
-          backgroundBlendMode: BlendMode.colorBurn,
-          color: Colors.black.withOpacity(0.7)
-        ),
-         decoration: const BoxDecoration(
-
-           gradient: LinearGradient(
-             begin: Alignment.topRight,
-             end: Alignment.bottomLeft,
-             colors: [
-               Colors.lightGreenAccent,
-               Colors.redAccent
-             ]
-           ),
-
-         ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
           child:ExpandedTileList.builder(
             itemCount: 3,
@@ -51,36 +39,83 @@ class InjuryCureView extends GetView<InjuryCureController> {
             reverse: false,
             itemBuilder: (context, index, controller) {
               return ExpandedTile(
-                trailing: Icon(Icons.arrow_forward_ios_sharp, size: 16,color: Colors.white,),
-                leading: Icon(Icons.sports_handball_sharp,color: Colors.redAccent,),
+                trailing: const Icon(Icons.arrow_forward_ios_sharp, size: 16,color: Colors.cyan,),
+                leading: const Icon(Icons.sports_handball_sharp,color: Colors.cyan,),
                 theme: const ExpandedTileThemeData(
-                  headerColor: Colors.black54,
-                  headerRadius: 24.0,
+                  headerColor: Colors.white,
+                  headerSplashColor: Colors.cyan,
+                  headerRadius: 16.0,
                   headerPadding: EdgeInsets.all(24.0),
                   //
-                  contentBackgroundColor: Colors.black54,
+                  contentBackgroundColor: Colors.white,
                   contentPadding: EdgeInsets.all(24.0),
                   contentRadius: 12.0,
                 ),
                 controller:
                 index == 2 ? controller.copyWith(isExpanded: true) : controller,
-                title: Text("Injury $index", style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),),
+                title: Text("Injury $index", style: const TextStyle(color: Colors.black87
+                    , fontSize: 16,
+                    fontFamily: MyFont.fontModernist,
+                  package: 'assets:fonts/Sk-Modernist-Regular'
+
+
+                ),),
                 content: Container(
                   child: Column(
                     children: [
                       const Center(
                         child: Text(
-                            "This is the content!ksdjfl kjsdflk sjdflksjdf lskjfd lsdkfj  ls kfjlsfkjsdlfkjsfldkjsdflkjsfdlksjdflskdjf lksdjflskfjlsfkjslfkjsldfkjslfkjsldfkjsflksjflskjflskfjlsfkjslfkjsflksjflskfjlsfkjslfkjslfkjslfkjslfkjsldfkjsdf",
-                           style: TextStyle(color: Colors.white,),
+                          "This is the content!ksdjfl kjsdflk sjdflksjdf lskjfd lsdkfj  ls kfjlsfkjsdlfkjsfldkjsdflkjsfdlksjdflskdjf lksdjflskfjlsfkjslfkjsldfkjslfkjsldfkjsflksjflskjflskfjlsfkjslfkjsflksjflskfjlsfkjslfkjslfkjslfkjslfkjsldfkjsdf",
+                          style: TextStyle(color: Colors.black87,
+                           fontFamily: MyFont.fontModernist,
+                            package: 'assets:fonts/Sk-Modernist-Regular'
+
+                          ),
                         ),
 
                       ),
-                      MaterialButton(
-                        onPressed: () {
-                          controller.collapse();
-                        },
-                        child: Text("close it!",style: TextStyle(color: Colors.white),),
-                      )
+                      Container(
+                        height: 38,
+                        decoration: BoxDecoration(
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.black26, offset: Offset(0, 4), blurRadius: 5.0)
+                          ],
+                           gradient: MyColor.linearGradient,
+                          color: Colors.deepPurple.shade300,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+
+                          ),
+                          onPressed: () {
+                            Get.toNamed(Routes.FULL_SCREEN_VIDEO_PLAYER);
+
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: const [
+                              Icon(Icons.play_circle),
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 5.0),
+                                child: Text(
+                                  "Watch video",
+                                  style: TextStyle(
+                                    // fontWeight: FontWeight.w700,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),

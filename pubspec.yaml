@@ -27,5 +27,12 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+  fonts:
+    - family: Sk-Modernist
+      fonts:
+        - asset: fonts/Sk-Modernist-Bold.otf
+        - asset: fonts/Sk-Modernist-Mono.otf
+        - asset: fonts/Sk-Modernist-Regular.otf
+
 
 

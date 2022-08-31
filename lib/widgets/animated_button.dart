@@ -4,36 +4,39 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animated_button/flutter_animated_button.dart';
 import 'package:get/get.dart';
 import 'package:rehab4wrestling/app/modules/auth/controllers/auth_controller.dart';
+import 'package:rehab4wrestling/utils/constant.dart';
 
 class AnimatedCustomButton extends StatelessWidget {
   const AnimatedCustomButton({
     Key? key,
-    required this.controller,
     required this.onTap,
     required this.title
 
   }) :super(key: key);
 
-  final AuthController controller;
+
   final VoidCallback onTap;
   final String title;
 
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() {
-      return AnimatedButton(
+    return  AnimatedButton(
           width: double.infinity,
           text: title,
-          isReverse: false,
-          selectedTextColor: Colors.black,
+          isReverse: true,
+          selectedTextColor: Colors.white,
           borderWidth: 1,
-          borderColor: Colors.lightGreen,
-          backgroundColor: Colors.grey.withOpacity(0.2),
+          backgroundColor: Colors.black,
+          gradient: MyColor.linearGradient,
           borderRadius: 16,
-          selectedBackgroundColor: controller.flag.isTrue
-              ? Colors.lightGreen
-              : Colors.redAccent,
+          selectedGradientColor: LinearGradient(
+            colors: [
+
+              Color(0xff5B86E5),
+              Color(0xff36D1DC),
+            ],
+          ),
           transitionType: TransitionType.CENTER_LR_IN,
           textStyle: const TextStyle(
               fontSize: 18,
@@ -42,6 +45,5 @@ class AnimatedCustomButton extends StatelessWidget {
               fontWeight: FontWeight.w500),
           onPress: onTap
       );
-    });
   }
 }

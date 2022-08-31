@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:rehab4wrestling/utils/constant.dart';
 
 class MyThemes {
   final ThemeData themeData = ThemeData(
@@ -7,13 +8,35 @@ class MyThemes {
       toolbarHeight: 50,
       systemOverlayStyle: SystemUiOverlayStyle(
         // Status bar color
-        statusBarColor: Colors.lightGreen,
-        statusBarIconBrightness: Brightness.dark,
+        statusBarColor: Colors.cyan,
+        statusBarIconBrightness: Brightness.light,
         statusBarBrightness: Brightness.light,
       ),
       centerTitle: true,
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.cyan,
       elevation: 0.0,
+    ),
+    elevatedButtonTheme:  ElevatedButtonThemeData(
+      style: ButtonStyle(
+        elevation: MaterialStateProperty.all(0.0),
+        backgroundColor: MaterialStateProperty.all(Colors.transparent),
+      shape:
+      MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16.0),
+              side: BorderSide(color: const Color(0xff5B86E5))
+          )
+      ),
+
+      ),
+    ),
+    buttonTheme: ButtonThemeData(
+      height: 52,
+  shape:
+    RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(8.0),
+      side: const BorderSide(color: Color(0xff5B86E5))
+    ),
     ),
 
     colorScheme: const ColorScheme.light(
@@ -37,28 +60,43 @@ class MyThemes {
     //   ),
     // ),
 
-    inputDecorationTheme: InputDecorationTheme(
-      filled: true,
-      hintStyle: TextStyle(color: Colors.white38),
-      fillColor: Colors.black26,
-      isDense: true,
-      focusColor: Colors.lightGreenAccent,
-      contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+    inputDecorationTheme: const InputDecorationTheme(
 
-      border: const OutlineInputBorder(
-        borderRadius: BorderRadius.all(Radius.circular(16)),
-        borderSide: BorderSide(width: 1, color: Colors.yellow),
+      hintStyle: TextStyle(color: Colors.grey),
+      focusColor: Color(0xff36D1DC),
+      floatingLabelAlignment: FloatingLabelAlignment.start,
+      errorStyle: TextStyle(
+        color: Colors.red,
       ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: const BorderRadius.all(Radius.circular(16)),
-        borderSide:
-        BorderSide(width: 1, color: Colors.lightGreen.withOpacity(0.5)),
+      contentPadding: EdgeInsets.symmetric(vertical: 1),
+      border: InputBorder.none,
+
+
+
+      floatingLabelStyle: TextStyle(color: Colors.black87,fontWeight: FontWeight.w800,),
+
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+        borderSide: BorderSide(width: 1, color: Colors.cyan),
+      ),
+      errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderSide:
+          BorderSide(width: 1, color: Colors.red)
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16),
-        borderSide:
-        BorderSide(width: 1, color: Colors.white.withOpacity(0.5)),
+  borderRadius: BorderRadius.all(Radius.circular(8)),
+  borderSide:
+  BorderSide(width: 1, color: Color(0xffCCCCCC))
       ),
+
+      focusedBorder: const OutlineInputBorder(
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+        borderSide:
+        BorderSide(width: 1, color: Color(0xff36D1DC)
+        ),
+      ),
+
       // filled: true,
     ),
   );

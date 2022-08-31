@@ -10,13 +10,15 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/injury_cure/bindings/injury_cure_binding.dart';
 import '../modules/injury_cure/views/injury_cure_view.dart';
+import '../modules/welcome/bindings/welcome_binding.dart';
+import '../modules/welcome/views/welcome_view.dart';
 
 part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.AUTH;
+  static const INITIAL = Routes.WELCOME;
 
   static final routes = [
     GetPage(
@@ -48,6 +50,11 @@ class AppPages {
       name: _Paths.INJURY_CURE,
       page: () => InjuryCureView(),
       binding: InjuryCureBinding(),
+    ),
+    GetPage(
+      name: _Paths.WELCOME,
+      page: () => WelcomeView(),
+      binding: WelcomeBinding(),
     ),
   ];
 }
