@@ -1,13 +1,45 @@
+import 'package:better_player/better_player.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FullScreenVideoPlayerController extends GetxController {
-  //TODO: Implement FullScreenVideoPlayerController
-
-  final count = 0.obs;
+  late String url;
+  late final videoPlayerController = BetterPlayerController(
+    const BetterPlayerConfiguration(
+      aspectRatio: 16 / 9,
+      autoPlay: true,
+      fullScreenAspectRatio: 16 / 9,
+      fit: BoxFit.contain,
+      controlsConfiguration: BetterPlayerControlsConfiguration(
+        enableQualities: false,
+        enableAudioTracks: false,
+        enableSubtitles: false,
+        controlBarColor: Colors.black26,
+      ),
+    ),
+  );
+  late BetterPlayerDataSource betterPlayerDataSource;
 
   @override
   void onInit() {
+    // url = Get.arguments as String;
+    url = "https://www.google.com/";
+    betterPlayerDataSource = BetterPlayerDataSource.network(
+      url,
+      cacheConfiguration: BetterPlayerCacheConfiguration(
+        useCache: true,
+        preCacheSize: 10 * 1024 * 1024,
+        maxCacheSize: 10 * 1024 * 1024,
+        maxCacheFileSize: 10 * 1024 * 1024,
+
+        ///Android only option to use cached video between app sessions
+        key: url.hashCode.toString(),
+      ),
+    );
     super.onInit();
+
+    videoPlayerController.setupDataSource(betterPlayerDataSource);
   }
 
   @override
@@ -17,6 +49,4 @@ class FullScreenVideoPlayerController extends GetxController {
 
   @override
   void onClose() {}
-
-  void increment() => count.value++;
 }

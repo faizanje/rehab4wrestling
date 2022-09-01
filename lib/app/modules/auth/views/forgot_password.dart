@@ -103,15 +103,16 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                       AnimatedCustomButton(
                         title: "Submit",
                         onTap: () {
-                          if (_formKey.currentState!.validate()) {
-                            controller.flag.value = true;
-                            Future.delayed(const Duration(seconds: 1), () {
-                              Get.toNamed(Routes.HOME);
-                            });
-                          } else {
-                            Get.back();
-                            controller.flag.value = false;
-                          }
+                          Get.back();
+                          // if (_formKey.currentState!.validate()) {
+                          //   controller.flag.value = true;
+                          //   Future.delayed(const Duration(seconds: 1), () {
+                          //     Get.toNamed(Routes.HOME);
+                          //   });
+                          // } else {
+                          //   Get.back();
+                          //   controller.flag.value = false;
+                          // }
                         },
                       ),
                       const SizedBox(

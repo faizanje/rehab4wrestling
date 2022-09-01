@@ -35,13 +35,8 @@ class FullScreenVideoPlayerView
         children: [
           AspectRatio(
             aspectRatio: 16 / 9,
-            child: BetterPlayerListVideoPlayer(
-              BetterPlayerDataSource(
-                  BetterPlayerDataSourceType.network, kMediaURL),
-              key: Key(kMediaURL.hashCode.toString()),
-              autoPlay: true,
-              configuration: BetterPlayerConfiguration(),
-              // playFraction: 0.8,
+            child: BetterPlayer(
+              controller: controller.videoPlayerController,
             ),
           ),
           const Padding(

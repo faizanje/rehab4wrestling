@@ -205,7 +205,8 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                       Center(
                         child: InkWell(
                           onTap: () {
-                            Get.toNamed(Routes.LOGIN);
+                            Get.back();
+                            // Get.toNamed(Routes.LOGIN);
                           },
                           child: RichText(
                             text: const TextSpan(

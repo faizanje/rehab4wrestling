@@ -198,7 +198,8 @@ class _LoginViewState extends State<LoginView> {
                       Center(
                         child: InkWell(
                           onTap: () {
-                            Get.toNamed(Routes.AUTH);
+                            Get.back();
+                            // Get.toNamed(Routes.AUTH);
                           },
                           child: RichText(
                             text: const TextSpan(
