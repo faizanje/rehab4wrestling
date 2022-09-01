@@ -17,61 +17,61 @@ class WelcomeView extends GetView<WelcomeController> {
           Container(
               child:Image.asset('assets/bg.png'),
     ),
+        Spacer(),
 
-          const SizedBox(height: 16,),
-          Expanded(
-            child: SingleChildScrollView(
-              padding: EdgeInsets.all(16),
-              child: Column(
-                children: [
-                  Text(
-                    "Wrestling for Rehab",
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Please for Rehab",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 36,
+                      fontFamily: 'Sk-Modernist',
+                      fontWeight: FontWeight.w700),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(top: 16.0,bottom: 26),
+                  child: Text(
+                    "Please login your account to use our app. If you are a new user, Please register yourself.",
                     style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 36,
-                        fontFamily: 'Sk-Modernist',
-                        fontWeight: FontWeight.w700),
-                  ),
+                      color: Colors.black.withOpacity(0.5),
+                      fontSize: 18,
+                      fontFamily: 'Sk-Modernist',
+                      package: 'assets:fonts/Sk-Modernist'
 
-                  Padding(
-                    padding: const EdgeInsets.only(top: 16.0,bottom: 26),
-                    child: Text(
-                      "Please login your account to use our app. If you are a new user, Please register yourself.",
-                      style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
-                        fontSize: 18,
-                        fontFamily: 'Sk-Modernist',
-                        package: 'asset:fonts/Sk-Modernist-Regular.otf',
-                      ),
                     ),
                   ),
-                  AnimatedCustomButton(
-                    title: "Login",
-                    onTap: () {
-                      Future.delayed(Duration(milliseconds: 500),(){
-                        Get.toNamed(Routes.LOGIN);
-                      });
-                    },
-                  ),
+                ),
+                AnimatedCustomButton(
+                  title: "Login",
+                  onTap: () {
+                    Future.delayed(Duration(milliseconds: 500),(){
+                      Get.toNamed(Routes.LOGIN);
+                    });
+                  },
+                ),
 
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 17.0),
-                    child: SizedBox(
-                        height: 50,
-                        width: double.infinity,
-                        child: ElevatedButton(onPressed: (){
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 17.0),
+                  child: SizedBox(
+                      height: 50,
+                      width: double.infinity,
+                      child: ElevatedButton(onPressed: (){
 
-                          Get.toNamed(Routes.AUTH);
-                        }, child: const Text("Register",
-                          style: TextStyle(color: Colors.blueAccent,fontFamily:
-                          MyFont.fontModernist,
-                          fontWeight: FontWeight.w600,
-                            fontSize: 16
+                        Get.toNamed(Routes.AUTH);
+                      }, child: const Text("Register",
+                        style: TextStyle(color: Colors.blueAccent,fontFamily:
+                        MyFont.fontModernist,
+                        fontWeight: FontWeight.w600,
+                          fontSize: 16
 
-                          ),))),
-                  ),
-                ],
-              ),
+                        ),))),
+                ),
+              ],
             ),
           ),
 

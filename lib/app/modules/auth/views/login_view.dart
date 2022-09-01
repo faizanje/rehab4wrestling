@@ -73,10 +73,10 @@ class _LoginViewState extends State<LoginView> {
                         child: Text(
                           "Please enter your email and password to login.",
                           style: TextStyle(
-                            color: Colors.black.withOpacity(0.7),
+                            color: Colors.black.withOpacity(0.5),
                             fontSize: 18,
                             fontFamily: 'Sk-Modernist',
-                            package: 'asset:fonts/Sk-Modernist-Regular.otf',
+                            package: 'asset:fonts/Sk-Modernist-Regular',
                           ),
                         ),
                       ),

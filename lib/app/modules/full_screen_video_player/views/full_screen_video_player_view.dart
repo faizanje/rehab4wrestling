@@ -1,5 +1,6 @@
 import 'package:better_player/better_player.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
 import 'package:rehab4wrestling/app/data/constants/constants.dart';
@@ -13,19 +14,22 @@ class FullScreenVideoPlayerView
   Widget build(BuildContext context) {
     return Scaffold(
 
-      appBar:  AppBar(
-        backgroundColor: Colors.cyan,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
         leading: IconButton(
+          icon: SvgPicture.asset(
+            'assets/arrow-square-left.svg',
+            color: Colors.grey,
+          ),
           onPressed: (){
             Get.back();
           },
-          icon: const Icon(Icons.arrow_back_sharp,color: Colors.white,),
         ),
 
-        title: const Text('Injury Video', style: TextStyle(color: Colors.white,
-          fontFamily: MyFont.fontModernist,
-          package: "assets:fonts/Sk-Modernist-Regular"
-
+        title: const Text('Injury Name', style: TextStyle(color: Colors.black87,
+            fontSize: 22,
+            fontFamily: MyFont.fontModernist,
+            fontWeight: FontWeight.bold
         ),),
         centerTitle: true,
       ),
@@ -54,12 +58,13 @@ class FullScreenVideoPlayerView
 
             ),),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: const Text(
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text(
               "This is the content!ksdjfl kjsdflk sjdflksjdf lskjfd lsdkfj  ls kfjlsfkjsdlfkjsfldkjsdflkjsfdlksjdflskdjf lksdjflskfjlsfkjslfkjsldfkjslfkjsldfkjsflksjflskjflskfjlsfkjslfkjsflksjflskfjlsfkjslfkjslfkjslfkjslfkjsldfkjsdf",
               style: TextStyle(color: Colors.black87,
                   fontFamily: MyFont.fontModernist,
+                  fontSize: 16,
                   package: 'assets:fonts/Sk-Modernist-Regular'
 
               ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_button/flutter_animated_button.dart';
 import 'package:flutter_expanded_tile/flutter_expanded_tile.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
 import 'package:rehab4wrestling/app/routes/app_pages.dart';
@@ -16,17 +17,21 @@ class InjuryCureView extends GetView<InjuryCureController> {
     return Scaffold(
       backgroundColor: const Color(0xffEEEFFF),
       appBar: AppBar(
-        backgroundColor: Colors.cyan,
+        backgroundColor: Colors.transparent,
         leading: IconButton(
+          icon: SvgPicture.asset(
+            'assets/arrow-square-left.svg',
+            color: Colors.grey,
+          ),
           onPressed: (){
             Get.back();
           },
-          icon: const Icon(Icons.arrow_back_sharp,color: Colors.white,),
         ),
 
-        title: const Text('Injury Video List', style: TextStyle(color: Colors.white,
-        fontFamily: MyFont.fontModernist,
-          package: 'assets:fonts/Sk-Modernist-Bold'
+        title: const Text('Injury Video List', style: TextStyle(color: Colors.black87,
+            fontSize: 22,
+            fontFamily: MyFont.fontModernist,
+            fontWeight: FontWeight.bold
         ),),
         centerTitle: true,
       ),
@@ -39,6 +44,7 @@ class InjuryCureView extends GetView<InjuryCureController> {
             reverse: false,
             itemBuilder: (context, index, controller) {
               return ExpandedTile(
+                contentSeperator: 12.0,
                 trailing: const Icon(Icons.arrow_forward_ios_sharp, size: 16,color: Colors.cyan,),
                 leading: const Icon(Icons.sports_handball_sharp,color: Colors.cyan,),
                 theme: const ExpandedTileThemeData(
@@ -46,7 +52,6 @@ class InjuryCureView extends GetView<InjuryCureController> {
                   headerSplashColor: Colors.cyan,
                   headerRadius: 16.0,
                   headerPadding: EdgeInsets.all(24.0),
-                  //
                   contentBackgroundColor: Colors.white,
                   contentPadding: EdgeInsets.all(24.0),
                   contentRadius: 12.0,
@@ -60,64 +65,64 @@ class InjuryCureView extends GetView<InjuryCureController> {
 
 
                 ),),
-                content: Container(
-                  child: Column(
-                    children: [
-                      const Center(
-                        child: Text(
-                          "This is the content!ksdjfl kjsdflk sjdflksjdf lskjfd lsdkfj  ls kfjlsfkjsdlfkjsfldkjsdflkjsfdlksjdflskdjf lksdjflskfjlsfkjslfkjsldfkjslfkjsldfkjsflksjflskjflskfjlsfkjslfkjsflksjflskfjlsfkjslfkjslfkjslfkjslfkjsldfkjsdf",
-                          style: TextStyle(color: Colors.black87,
-                           fontFamily: MyFont.fontModernist,
-                            package: 'assets:fonts/Sk-Modernist-Regular'
+                content: Column(
+                  children: [
+                    const Center(
+                      child: Text(
+                        "This is the content!ksdjfl kjsdflk sjdflksjdf lskjfd lsdkfj  ls kfjlsfkjsdlfkjsfldkjsdflkjsfdlksjdflskdjf lksdjflskfjlsfkjslfkjsldfkjslfkjsldfkjsflksjflskjflskfjlsfkjslfkjsflksjflskfjlsfkjslfkjslfkjslfkjslfkjsldfkjsdf",
+                        style: TextStyle(color: Colors.black87,
+                         fontFamily: MyFont.fontModernist,
+                          package: 'assets:fonts/Sk-Modernist-Regular'
 
-                          ),
                         ),
-
                       ),
-                      Container(
-                        height: 38,
-                        decoration: BoxDecoration(
-                          boxShadow: const [
-                            BoxShadow(
-                                color: Colors.black26, offset: Offset(0, 4), blurRadius: 5.0)
-                          ],
-                           gradient: MyColor.linearGradient,
-                          color: Colors.deepPurple.shade300,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
+
+                    ),
+                    const SizedBox(height: 20,),
+                    Container(
+                      height: 42,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        boxShadow: const [
+                          BoxShadow(
+                              color: Colors.black26, offset: Offset(0, 4), blurRadius: 5.0)
+                        ],
+                         gradient: MyColor.linearGradient,
+                        color: Colors.deepPurple.shade300,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
-
                           ),
-                          onPressed: () {
-                            Get.toNamed(Routes.FULL_SCREEN_VIDEO_PLAYER);
 
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: const [
-                              Icon(Icons.play_circle),
-                              Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 5.0),
-                                child: Text(
-                                  "Watch video",
-                                  style: TextStyle(
-                                    // fontWeight: FontWeight.w700,
-                                    color: Colors.white,
-                                  ),
+                        ),
+                        onPressed: () {
+                          Get.toNamed(Routes.FULL_SCREEN_VIDEO_PLAYER);
+
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: const [
+                            Icon(Icons.play_circle),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 5.0),
+                              child: Text(
+                                "Watch video",
+                                style: TextStyle(
+                                  // fontWeight: FontWeight.w700,
+                                  color: Colors.white,
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 onTap: () {
                   debugPrint("tapped!!");

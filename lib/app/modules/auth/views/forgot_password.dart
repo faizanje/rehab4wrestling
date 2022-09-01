@@ -66,10 +66,10 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                         child: Text(
                           "Please enter your valid email.",
                           style: TextStyle(
-                            color: Colors.black.withOpacity(0.7),
+                            color: Colors.black.withOpacity(0.5),
                             fontSize: 18,
                             fontFamily: 'Sk-Modernist',
-                            package: 'asset:fonts/Sk-Modernist-Regular.otf',
+                            package: 'asset:fonts/Sk-Modernist-Regular',
                           ),
                         ),
                       ),
@@ -118,31 +118,6 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                       ),
                       const SizedBox(
                         height: 16,
-                      ),
-                      Center(
-                        child: InkWell(
-                          onTap: () {
-                            Get.toNamed(Routes.AUTH);
-                          },
-                          child: RichText(
-                            text: const TextSpan(
-                              children: <TextSpan>[
-                                TextSpan(
-                                    text: 'Don\'t have an account?',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        fontFamily: MyFont.fontModernist,
-                                        color: Colors.black87)),
-                                TextSpan(
-                                    text: ' SignUp!',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: MyFont.fontModernist,
-                                        color: Colors.cyan)),
-                              ],
-                            ),
-                          ),
-                        ),
                       ),
                     ],
                   ),

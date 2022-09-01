@@ -15,14 +15,14 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.cyan,
+        backgroundColor: const Color(0xffEEEFFF),
         body: SingleChildScrollView(
           child: Column(
               children: [
                  const Padding(
                    padding: EdgeInsets.only(top: 16.0),
                    child: Text("Select Body part", style: TextStyle(
-                       color: Colors.white,
+                       color: Colors.black87,
                        fontSize: 22,
                        fontFamily: MyFont.fontModernist,
                        fontWeight: FontWeight.bold),),
