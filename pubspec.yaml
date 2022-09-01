@@ -30,9 +30,24 @@ flutter:
   fonts:
     - family: Sk-Modernist
       fonts:
-        - asset: fonts/Sk-Modernist-Bold.otf
-        - asset: fonts/Sk-Modernist-Mono.otf
         - asset: fonts/Sk-Modernist-Regular.otf
+        - weight: 100
+        - asset: fonts/Sk-Modernist-Regular.otf
+        - weight: 200
+        - asset: fonts/Sk-Modernist-Regular.otf
+        - weight: 300
+        - asset: fonts/Sk-Modernist-Regular.otf
+        - weight: 400
+        - asset: fonts/Sk-Modernist-Regular.otf
+        - weight: 500
+        - asset: fonts/Sk-Modernist-Bold.otf
+        - weight: 600
+        - asset: fonts/Sk-Modernist-Bold.otf
+        - weight: 700
+        - asset: fonts/Sk-Modernist-Bold.otf
+        - weight: 800
+        - asset: fonts/Sk-Modernist-Bold.otf
+        - weight: 900
 
 
 

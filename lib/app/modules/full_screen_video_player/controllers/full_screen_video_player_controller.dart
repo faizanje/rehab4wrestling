@@ -4,6 +4,7 @@ class FullScreenVideoPlayerController extends GetxController {
   //TODO: Implement FullScreenVideoPlayerController
 
   final count = 0.obs;
+
   @override
   void onInit() {
     super.onInit();
@@ -16,5 +17,6 @@ class FullScreenVideoPlayerController extends GetxController {
 
   @override
   void onClose() {}
+
   void increment() => count.value++;
 }

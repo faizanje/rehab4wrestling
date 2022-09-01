@@ -4,6 +4,7 @@ class InjuryCureController extends GetxController {
   //TODO: Implement InjuryCureController
 
   final count = 0.obs;
+
   @override
   void onInit() {
     super.onInit();
@@ -16,5 +17,6 @@ class InjuryCureController extends GetxController {
 
   @override
   void onClose() {}
+
   void increment() => count.value++;
 }

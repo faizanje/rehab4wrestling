@@ -3,6 +3,7 @@ part of 'app_pages.dart';
 
 abstract class Routes {
   Routes._();
+
   static const HOME = _Paths.HOME;
   static const FULL_SCREEN_VIDEO_PLAYER = _Paths.FULL_SCREEN_VIDEO_PLAYER;
   static const AUTH = _Paths.AUTH;
@@ -14,6 +15,7 @@ abstract class Routes {
 
 abstract class _Paths {
   _Paths._();
+
   static const HOME = '/home';
   static const FULL_SCREEN_VIDEO_PLAYER = '/full-screen-video-player';
   static const AUTH = '/create-account';

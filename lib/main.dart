@@ -11,14 +11,25 @@ void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
     runApp(
-      GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: "Application",
-        initialRoute: AppPages.INITIAL,
-        getPages: AppPages.routes,
-        theme: MyThemes().themeData,
-      ),
+      const MyApp(),
     );
   });
+}
 
+class MyApp extends StatelessWidget {
+  const MyApp({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "Application",
+      initialRoute: AppPages.INITIAL,
+      getPages: AppPages.routes,
+      defaultTransition: Transition.rightToLeft,
+      theme: MyThemes().themeData,
+    );
+  }
 }

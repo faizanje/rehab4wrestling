@@ -5,13 +5,15 @@ import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
 import 'package:rehab4wrestling/app/routes/app_pages.dart';
+import 'package:rehab4wrestling/themes/app_theme.dart';
 import 'package:rehab4wrestling/utils/constant.dart';
 import 'package:rehab4wrestling/widgets/animated_button.dart';
 
 import '../controllers/injury_cure_controller.dart';
 
 class InjuryCureView extends GetView<InjuryCureController> {
-   final ExpandedTileController _controller= ExpandedTileController();
+  const InjuryCureView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,154 +21,153 @@ class InjuryCureView extends GetView<InjuryCureController> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leading: IconButton(
-          icon: SvgPicture.asset(
-            'assets/arrow-square-left.svg',
-            color: Colors.grey,
-          ),
-          onPressed: (){
+          icon: Icon(Icons.arrow_back_ios),
+          onPressed: () {
             Get.back();
           },
         ),
-
-        title: const Text('Injury Video List', style: TextStyle(color: Colors.black87,
-            fontSize: 22,
-            fontFamily: MyFont.fontModernist,
-            fontWeight: FontWeight.bold
-        ),),
+        title: const Text(
+          'Injury Video List',
+          style: TextStyle(
+              color: Colors.black87, fontSize: 22, fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child:ExpandedTileList.builder(
-            itemCount: 3,
-            maxOpened: 3,
-            reverse: false,
-            itemBuilder: (context, index, controller) {
-              return ExpandedTile(
-                contentSeperator: 12.0,
-                trailing: const Icon(Icons.arrow_forward_ios_sharp, size: 16,color: Colors.cyan,),
-                leading: const Icon(Icons.sports_handball_sharp,color: Colors.cyan,),
-                theme: const ExpandedTileThemeData(
-                  headerColor: Colors.white,
-                  headerSplashColor: Colors.cyan,
-                  headerRadius: 16.0,
-                  headerPadding: EdgeInsets.all(24.0),
-                  contentBackgroundColor: Colors.white,
-                  contentPadding: EdgeInsets.all(24.0),
-                  contentRadius: 12.0,
+      body: Container(
+        margin: const EdgeInsets.all(16),
+        child: ListView.builder(
+          physics: const BouncingScrollPhysics(),
+          itemBuilder: (context, index) {
+            return Container(
+              margin: const EdgeInsets.symmetric(vertical: 6),
+              child: ClipRRect(
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(10),
                 ),
-                controller:
-                index == 2 ? controller.copyWith(isExpanded: true) : controller,
-                title: Text("Injury $index", style: const TextStyle(color: Colors.black87
-                    , fontSize: 16,
-                    fontFamily: MyFont.fontModernist,
-                  package: 'assets:fonts/Sk-Modernist-Regular'
-
-
-                ),),
-                content: Column(
-                  children: [
-                    const Center(
-                      child: Text(
-                        "This is the content!ksdjfl kjsdflk sjdflksjdf lskjfd lsdkfj  ls kfjlsfkjsdlfkjsfldkjsdflkjsfdlksjdflskdjf lksdjflskfjlsfkjslfkjsldfkjslfkjsldfkjsflksjflskjflskfjlsfkjslfkjsflksjflskfjlsfkjslfkjslfkjslfkjslfkjsldfkjsdf",
-                        style: TextStyle(color: Colors.black87,
-                         fontFamily: MyFont.fontModernist,
-                          package: 'assets:fonts/Sk-Modernist-Regular'
-
-                        ),
+                child: Theme(
+                  data: MyThemes().themeData.copyWith(
+                        dividerColor: Colors.transparent,
+                        // textTheme: Get.textTheme.copyWith(),
                       ),
-
+                  child: ExpansionTile(
+                    leading: const Icon(
+                      Icons.sports_handball_sharp,
+                      color: Colors.cyan,
                     ),
-                    const SizedBox(height: 20,),
-                    Container(
-                      height: 42,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        boxShadow: const [
-                          BoxShadow(
-                              color: Colors.black26, offset: Offset(0, 4), blurRadius: 5.0)
-                        ],
-                         gradient: MyColor.linearGradient,
-                        color: Colors.deepPurple.shade300,
-                        borderRadius: BorderRadius.circular(8),
+                    backgroundColor: Colors.white,
+                    collapsedBackgroundColor: Colors.white,
+                    title: Text(
+                      "Injury ${index + 1}",
+                      style: const TextStyle(
+                        color: Colors.black87,
+                        fontSize: 16,
                       ),
-                      child: ElevatedButton(
-                        style: ButtonStyle(
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                          ),
-
-                        ),
-                        onPressed: () {
-                          Get.toNamed(Routes.FULL_SCREEN_VIDEO_PLAYER);
-
-                        },
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: const [
-                            Icon(Icons.play_circle),
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 5.0),
+                    ),
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Column(
+                          children: [
+                            const Center(
                               child: Text(
-                                "Watch video",
+                                "Lorem ipsum dolor sit amet. Ut accusamus magni id necessitatibus quasi nam repellat porro nam neque Quis in nulla voluptas qui omnis quidem? Qui voluptas minima sit unde facere et voluptatem facere. Vel architecto esse et doloribus quia est dolorum inventore et esse odio et voluptas voluptatem est commodi dolore.",
                                 style: TextStyle(
-                                  // fontWeight: FontWeight.w700,
-                                  color: Colors.white,
+                                  color: Colors.black87,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Container(
+                              height: 42,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                boxShadow: const [
+                                  BoxShadow(
+                                      color: Colors.black26,
+                                      offset: Offset(0, 4),
+                                      blurRadius: 5.0)
+                                ],
+                                gradient: MyColor.linearGradient,
+                                color: Colors.deepPurple.shade300,
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: ElevatedButton(
+                                style: ButtonStyle(
+                                  elevation: MaterialStateProperty.all(0),
+                                  shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  Get.toNamed(Routes.FULL_SCREEN_VIDEO_PLAYER);
+                                },
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: const [
+                                    Icon(Icons.play_circle),
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 5.0),
+                                      child: Text(
+                                        "Watch video",
+                                        style: TextStyle(
+                                          // fontWeight: FontWeight.w700,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
                           ],
                         ),
-                      ),
-                    ),
-                  ],
+                      )
+                    ],
+                  ),
                 ),
-                onTap: () {
-                  debugPrint("tapped!!");
-                },
-                onLongTap: () {
-                  debugPrint("looooooooooong tapped!!");
-                },
-              );
-            },
-          ),
+              ),
+            );
+          },
+          itemCount: 15,
         ),
       ),
     );
 
-          // Column(
-          //   children: List.generate(12, (index) =>
-          //
-          //        ExpandedTile(
-          //         theme: const ExpandedTileThemeData(
-          //           headerColor: Colors.white,
-          //           headerRadius: 24.0,
-          //           headerPadding: EdgeInsets.all(24.0),
-          //           headerSplashColor: Colors.red,
-          //           contentBackgroundColor: Colors.blue,
-          //           contentPadding: EdgeInsets.all(24.0),
-          //           contentRadius: 12.0,
-          //         ),
-          //         controller: _controller,
-          //         title: const Text("this is the title"),
-          //         content: Container(
-          //           color: Colors.red,
-          //           child: const Center(
-          //             child: Text("This is the content!"),
-          //           ),
-          //         ),
-          //         onTap: () {
-          //           debugPrint("tapped!!");
-          //         },
-          //         onLongTap: () {
-          //           debugPrint("long tapped!!");
-          //         },
-          //       ),
-          //   ),
-
+    // Column(
+    //   children: List.generate(12, (index) =>
+    //
+    //        ExpandedTile(
+    //         theme: const ExpandedTileThemeData(
+    //           headerColor: Colors.white,
+    //           headerRadius: 24.0,
+    //           headerPadding: EdgeInsets.all(24.0),
+    //           headerSplashColor: Colors.red,
+    //           contentBackgroundColor: Colors.blue,
+    //           contentPadding: EdgeInsets.all(24.0),
+    //           contentRadius: 12.0,
+    //         ),
+    //         controller: _controller,
+    //         title: const Text("this is the title"),
+    //         content: Container(
+    //           color: Colors.red,
+    //           child: const Center(
+    //             child: Text("This is the content!"),
+    //           ),
+    //         ),
+    //         onTap: () {
+    //           debugPrint("tapped!!");
+    //         },
+    //         onLongTap: () {
+    //           debugPrint("long tapped!!");
+    //         },
+    //       ),
+    //   ),
 
     //
     //         ),

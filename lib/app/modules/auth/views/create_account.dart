@@ -1,10 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rehab4wrestling/app/modules/auth/controllers/auth_controller.dart';
@@ -32,17 +30,22 @@ class _CreateAccountViewState extends State<CreateAccountView> {
     FocusNode(),
     FocusNode(),
   ];
+
   @override
   void initState() {
     focusNodes.forEach((node) {
       node.addListener(() {
-        controller.borderColor[0]= focusNodes[0].hasFocus?Colors.cyan:Colors.black26;
-        controller.borderColor[1]= focusNodes[1].hasFocus?Colors.cyan:Colors.black26;
-        controller.borderColor[2]= focusNodes[2].hasFocus?Colors.cyan:Colors.black26;
+        controller.borderColor[0] =
+            focusNodes[0].hasFocus ? Colors.cyan : Colors.black26;
+        controller.borderColor[1] =
+            focusNodes[1].hasFocus ? Colors.cyan : Colors.black26;
+        controller.borderColor[2] =
+            focusNodes[2].hasFocus ? Colors.cyan : Colors.black26;
       });
     });
     super.initState();
   }
+
   @override
   void dispose() {
     focusNodes[0].dispose();
@@ -55,7 +58,16 @@ class _CreateAccountViewState extends State<CreateAccountView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
+        // resizeToAvoidBottomInset: false,
+        // extendBodyBehindAppBar: true,
+        // appBar: AppBar(
+        //   leading: IconButton(
+        //     icon: Icon(Icons.arrow_back_ios),
+        //     onPressed: () {
+        //       Get.back();
+        //     },
+        //   ),
+        // ),
         backgroundColor: const Color(0xffffffff),
         body: Form(
           key: _formKey,
@@ -74,7 +86,6 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 36,
-                            fontFamily: 'Sk-Modernist',
                             fontWeight: FontWeight.w700),
                       ),
                       Padding(
@@ -84,12 +95,9 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                           style: TextStyle(
                             color: Colors.black.withOpacity(0.7),
                             fontSize: 18,
-                            fontFamily: 'Sk-Modernist',
-                            package: 'asset:fonts/Sk-Modernist-Regular.otf',
                           ),
                         ),
                       ),
-
                       TextFormField(
                         onTap: () {
                           controller.borderColor[0] = Colors.cyan;
@@ -100,9 +108,10 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                             hintText: "Name",
                             labelText: "Name",
                             prefixIconConstraints:
-                            const BoxConstraints(minWidth: 0, minHeight: 0),
+                                const BoxConstraints(minWidth: 0, minHeight: 0),
                             prefixIcon: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 12),
                               child: Obx(() {
                                 return SvgPicture.asset(
                                   'assets/profile.svg',
@@ -124,9 +133,10 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                             hintText: "Email",
                             labelText: "Email",
                             prefixIconConstraints:
-                            const BoxConstraints(minWidth: 0, minHeight: 0),
+                                const BoxConstraints(minWidth: 0, minHeight: 0),
                             prefixIcon: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 12),
                               child: Obx(() {
                                 return SvgPicture.asset(
                                   'assets/email.svg',
@@ -149,14 +159,13 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                           decoration: InputDecoration(
                               hintText: "Password",
                               labelText: "Password",
-                              prefixIconConstraints:
-                              const BoxConstraints(minWidth: 0, minHeight: 0),
+                              prefixIconConstraints: const BoxConstraints(
+                                  minWidth: 0, minHeight: 0),
                               suffixIcon: Obx(() {
                                 return IconButton(
-                                  icon: Icon(Icons.remove_red_eye,
-                                      color: controller.isHide.isTrue
-                                          ? Colors.cyan
-                                          : Colors.grey),
+                                  icon: Icon(controller.isHide.isTrue
+                                      ? Icons.visibility
+                                      : Icons.visibility_off),
                                   onPressed: () {
                                     controller.isHide.isTrue
                                         ? controller.isHide.value = false
@@ -166,7 +175,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                               }),
                               prefixIcon: Padding(
                                 padding:
-                                const EdgeInsets.symmetric(horizontal: 12),
+                                    const EdgeInsets.symmetric(horizontal: 12),
                                 child: Obx(() {
                                   return SvgPicture.asset('assets/password.svg',
                                       color: controller.borderColor[2]);
@@ -200,18 +209,17 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                           },
                           child: RichText(
                             text: const TextSpan(
+                              style: TextStyle(fontFamily: 'Sk-Modernist'),
                               children: <TextSpan>[
                                 TextSpan(
                                     text: 'Already have an account?',
                                     style: TextStyle(
                                         fontWeight: FontWeight.w600,
-                                        fontFamily: MyFont.fontModernist,
                                         color: Colors.black87)),
                                 TextSpan(
                                     text: ' Login!',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontFamily: MyFont.fontModernist,
                                         color: Colors.cyan)),
                               ],
                             ),
@@ -260,7 +268,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
 //                         style: TextStyle(
 //                             color: Colors.black,
 //                             fontSize: 36,
-//                             fontFamily: 'Sk-Modernist',
+//                             ,
 //                             fontWeight: FontWeight.w700),
 //                       ),
 //                        Padding(
@@ -270,7 +278,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
 //                           style: TextStyle(
 //                               color: Colors.black.withOpacity(0.7),
 //                               fontSize: 18,
-//                               fontFamily: 'Sk-Modernist',
+//                               ,
 //                               package: 'asset:fonts/Sk-Modernist-Regular.otf',
 //                               ),
 //                       ),
@@ -391,13 +399,13 @@ class _CreateAccountViewState extends State<CreateAccountView> {
 //                                     text: 'Already have an account?',
 //                                     style: TextStyle(
 //                                         fontWeight: FontWeight.w600,
-//                                         fontFamily: MyFont.fontModernist,
+//
 //                                         color: Colors.black87)),
 //                                 TextSpan(
 //                                     text: ' Login!',
 //                                     style: TextStyle(
 //                                         fontWeight: FontWeight.bold,
-//                                         fontFamily: MyFont.fontModernist,
+//
 //                                         color: Colors.cyan)),
 //                               ],
 //                             ),

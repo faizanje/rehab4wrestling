@@ -9,7 +9,6 @@ import 'package:rehab4wrestling/utils/validators.dart';
 import 'package:rehab4wrestling/widgets/animated_button.dart';
 import 'package:rehab4wrestling/widgets/auth_header.dart';
 
-
 class ForgotPasswordView extends StatefulWidget {
   const ForgotPasswordView({Key? key}) : super(key: key);
 
@@ -21,14 +20,17 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
   TextEditingController emailController = TextEditingController();
   AuthController controller = Get.put(AuthController());
   final _formKey = GlobalKey<FormState>();
-  final FocusNode forgotFocusNode =FocusNode();
+  final FocusNode forgotFocusNode = FocusNode();
+
   @override
   void initState() {
     forgotFocusNode.addListener(() {
-      controller.borderColor[0]= forgotFocusNode.hasFocus?Colors.cyan:Colors.black26;
+      controller.borderColor[0] =
+          forgotFocusNode.hasFocus ? Colors.cyan : Colors.black26;
     });
     super.initState();
   }
+
   @override
   void dispose() {
     forgotFocusNode.dispose();
@@ -58,7 +60,6 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 36,
-                            fontFamily: 'Sk-Modernist',
                             fontWeight: FontWeight.w700),
                       ),
                       Padding(
@@ -68,12 +69,9 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                           style: TextStyle(
                             color: Colors.black.withOpacity(0.5),
                             fontSize: 18,
-                            fontFamily: 'Sk-Modernist',
-                            package: 'asset:fonts/Sk-Modernist-Regular',
                           ),
                         ),
                       ),
-
                       const SizedBox(
                         height: 20,
                       ),
@@ -87,9 +85,10 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                             hintText: "Email",
                             labelText: "Email",
                             prefixIconConstraints:
-                            const BoxConstraints(minWidth: 0, minHeight: 0),
+                                const BoxConstraints(minWidth: 0, minHeight: 0),
                             prefixIcon: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 12),
                               child: Obx(() {
                                 return SvgPicture.asset(
                                   'assets/email.svg',
@@ -98,7 +97,6 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                               }),
                             )),
                       ),
-
                       const SizedBox(
                         height: 26,
                       ),
@@ -131,8 +129,6 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
   }
 }
 
-
-
 // class ForgotPasswordView extends GetView<AuthController> {
 //   TextEditingController emailController = TextEditingController();
 //
@@ -161,7 +157,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
 //                         style: TextStyle(
 //                             color: Colors.black,
 //                             fontSize: 36,
-//                             fontFamily: 'Sk-Modernist',
+//                             ,
 //                             fontWeight: FontWeight.w700),
 //                       ),
 //                       Padding(
@@ -171,7 +167,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
 //                           style: TextStyle(
 //                             color: Colors.black.withOpacity(0.7),
 //                             fontSize: 18,
-//                             fontFamily: 'Sk-Modernist',
+//                             ,
 //                             package: 'asset:fonts/Sk-Modernist-Regular.otf',
 //                           ),
 //                         ),
@@ -234,13 +230,13 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
 //                                     text: 'Don\'t have an account?',
 //                                     style: TextStyle(
 //                                         fontWeight: FontWeight.w600,
-//                                         fontFamily: MyFont.fontModernist,
+//
 //                                         color: Colors.black87)),
 //                                 TextSpan(
 //                                     text: ' SignUp!',
 //                                     style: TextStyle(
 //                                         fontWeight: FontWeight.bold,
-//                                         fontFamily: MyFont.fontModernist,
+//
 //                                         color: Colors.cyan)),
 //                               ],
 //                             ),
@@ -258,4 +254,3 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
 //     );
 //   }
 //   }
-

@@ -3,101 +3,98 @@ import 'package:flutter/services.dart';
 import 'package:rehab4wrestling/utils/constant.dart';
 
 class MyThemes {
-  final ThemeData themeData = ThemeData(
-    appBarTheme: const AppBarTheme(
-      toolbarHeight: 50,
-      systemOverlayStyle: SystemUiOverlayStyle(
-        // Status bar color
-        statusBarColor: Colors.cyan,
-        statusBarIconBrightness: Brightness.light,
-        statusBarBrightness: Brightness.light,
-      ),
-      centerTitle: true,
-      backgroundColor: Colors.cyan,
-      elevation: 0.0,
-    ),
-    elevatedButtonTheme:  ElevatedButtonThemeData(
-      style: ButtonStyle(
-        elevation: MaterialStateProperty.all(0.0),
-        backgroundColor: MaterialStateProperty.all(Colors.transparent),
-      shape:
-      MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16.0),
-              side: BorderSide(color: const Color(0xff5B86E5))
-          )
-      ),
-
-      ),
-    ),
-    buttonTheme: ButtonThemeData(
-      height: 52,
-  shape:
-    RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(8.0),
-      side: const BorderSide(color: Color(0xff5B86E5))
-    ),
-    ),
-
-    colorScheme: const ColorScheme.light(
-      primary: Colors.teal,
-    ),
-    // elevatedButtonTheme: ElevatedButtonThemeData(
-    //   style: ButtonStyle(
-    //     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-    //       RoundedRectangleBorder(
-    //         borderRadius: BorderRadius.circular(10),
-    //         side: BorderSide.none,
-    //       ),
-    //     ),
-    //     padding: MaterialStateProperty.all(
-    //       const EdgeInsets.symmetric(vertical: 12.0, horizontal: 18),
-    //     ),
-    //     // backgroundColor: MaterialStateProperty.all(Colors.black),
-    //     textStyle: MaterialStateProperty.all(
-    //       const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-    //     ),
-    //   ),
-    // ),
-
-    inputDecorationTheme: const InputDecorationTheme(
-
-      hintStyle: TextStyle(color: Colors.grey),
-      focusColor: Color(0xff36D1DC),
-      floatingLabelAlignment: FloatingLabelAlignment.start,
-      errorStyle: TextStyle(
-        color: Colors.red,
-      ),
-      contentPadding: EdgeInsets.symmetric(vertical: 1),
-      border: InputBorder.none,
-
-
-
-      floatingLabelStyle: TextStyle(color: Colors.black87,fontWeight: FontWeight.w800,),
-
-      focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.all(Radius.circular(8)),
-        borderSide: BorderSide(width: 1, color: Colors.cyan),
-      ),
-      errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8)),
-          borderSide:
-          BorderSide(width: 1, color: Colors.red)
-      ),
-      enabledBorder: OutlineInputBorder(
-  borderRadius: BorderRadius.all(Radius.circular(8)),
-  borderSide:
-  BorderSide(width: 1, color: Color(0xffCCCCCC))
-      ),
-
-      focusedBorder: const OutlineInputBorder(
-        borderRadius: BorderRadius.all(Radius.circular(8)),
-        borderSide:
-        BorderSide(width: 1, color: Color(0xff36D1DC)
+  ThemeData get themeData => ThemeData(
+        appBarTheme: const AppBarTheme(
+          toolbarHeight: 50,
+          color: Colors.transparent,
+          foregroundColor: Colors.black,
+          // systemOverlayStyle: SystemUiOverlayStyle(
+          //   // Status bar color
+          //   statusBarColor: Colors.cyan,
+          //   statusBarIconBrightness: Brightness.light,
+          //   statusBarBrightness: Brightness.light,
+          // ),
+          centerTitle: true,
+          // backgroundColor: Colors.cyan,
+          elevation: 0.0,
         ),
-      ),
+        fontFamily: 'Sk-Modernist',
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            elevation: MaterialStateProperty.all(0.0),
+            backgroundColor: MaterialStateProperty.all(Colors.transparent),
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16.0),
+                side: const BorderSide(
+                  color: Color(0xff5B86E5),
+                ),
+              ),
+            ),
+            textStyle: MaterialStateProperty.all(TextStyle(
+                fontWeight: FontWeight.bold, fontFamily: 'Sk-Modernist')),
+          ),
+        ),
+        buttonTheme: ButtonThemeData(
+          height: 52,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+              side: const BorderSide(color: Color(0xff5B86E5))),
+        ),
 
-      // filled: true,
-    ),
-  );
+        colorScheme: const ColorScheme.light(
+          primary: Colors.cyan,
+        ),
+        // elevatedButtonTheme: ElevatedButtonThemeData(
+        //   style: ButtonStyle(
+        //     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        //       RoundedRectangleBorder(
+        //         borderRadius: BorderRadius.circular(10),
+        //         side: BorderSide.none,
+        //       ),
+        //     ),
+        //     padding: MaterialStateProperty.all(
+        //       const EdgeInsets.symmetric(vertical: 12.0, horizontal: 18),
+        //     ),
+        //     // backgroundColor: MaterialStateProperty.all(Colors.black),
+        //     textStyle: MaterialStateProperty.all(
+        //       const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+        //     ),
+        //   ),
+        // ),
+
+        inputDecorationTheme: const InputDecorationTheme(
+          hintStyle: TextStyle(color: Colors.grey),
+          focusColor: Color(0xff36D1DC),
+          floatingLabelAlignment: FloatingLabelAlignment.start,
+          errorStyle: TextStyle(
+            color: Colors.red,
+          ),
+          contentPadding: EdgeInsets.symmetric(vertical: 1),
+          border: InputBorder.none,
+
+          floatingLabelStyle: TextStyle(
+            color: Colors.black87,
+            fontWeight: FontWeight.w800,
+          ),
+
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderSide: BorderSide(width: 1, color: Colors.cyan),
+          ),
+          errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+              borderSide: BorderSide(width: 1, color: Colors.red)),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+              borderSide: BorderSide(width: 1, color: Color(0xffCCCCCC))),
+
+          focusedBorder: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderSide: BorderSide(width: 1, color: Color(0xff36D1DC)),
+          ),
+
+          // filled: true,
+        ),
+      );
 }

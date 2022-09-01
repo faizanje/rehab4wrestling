@@ -10,64 +10,58 @@ import '../controllers/full_screen_video_player_controller.dart';
 
 class FullScreenVideoPlayerView
     extends GetView<FullScreenVideoPlayerController> {
+  const FullScreenVideoPlayerView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leading: IconButton(
-          icon: SvgPicture.asset(
-            'assets/arrow-square-left.svg',
-            color: Colors.grey,
-          ),
-          onPressed: (){
+          icon: Icon(Icons.arrow_back_ios),
+          onPressed: () {
             Get.back();
           },
         ),
-
-        title: const Text('Injury Name', style: TextStyle(color: Colors.black87,
-            fontSize: 22,
-            fontFamily: MyFont.fontModernist,
-            fontWeight: FontWeight.bold
-        ),),
+        title: const Text(
+          'Rehab Video',
+          style: TextStyle(
+              color: Colors.black87, fontSize: 22, fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
       ),
       body: Column(
-
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AspectRatio(
             aspectRatio: 16 / 9,
             child: BetterPlayerListVideoPlayer(
-              BetterPlayerDataSource(BetterPlayerDataSourceType.network, kMediaURL),
+              BetterPlayerDataSource(
+                  BetterPlayerDataSourceType.network, kMediaURL),
               key: Key(kMediaURL.hashCode.toString()),
               autoPlay: true,
               configuration: BetterPlayerConfiguration(),
               // playFraction: 0.8,
             ),
           ),
-
           const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0,vertical: 20),
-            child: Text("Injury ", style: TextStyle(color: Colors.black87
-                , fontSize: 26,
-                fontFamily: MyFont.fontModernist,
-                fontWeight: FontWeight.bold
-
-
-            ),),
+            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 20),
+            child: Text(
+              "Injury 1",
+              style: TextStyle(
+                  color: Colors.black87,
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold),
+            ),
           ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
-              "This is the content!ksdjfl kjsdflk sjdflksjdf lskjfd lsdkfj  ls kfjlsfkjsdlfkjsfldkjsdflkjsfdlksjdflskdjf lksdjflskfjlsfkjslfkjsldfkjslfkjsldfkjsflksjflskjflskfjlsfkjslfkjsflksjflskfjlsfkjslfkjslfkjslfkjslfkjsldfkjsdf",
-              style: TextStyle(color: Colors.black87,
-                  fontFamily: MyFont.fontModernist,
+              "Lorem ipsum dolor sit amet. Ut accusamus magni id necessitatibus quasi nam repellat porro nam neque Quis in nulla voluptas qui omnis quidem? Qui voluptas minima sit unde facere et voluptatem facere. Vel architecto esse et doloribus quia est dolorum inventore et esse odio et voluptas voluptatem est commodi dolore.",
+              style: TextStyle(
+                  color: Colors.black87,
                   fontSize: 16,
-                  package: 'assets:fonts/Sk-Modernist-Regular'
-
-              ),
+                  package: 'assets:fonts/Sk-Modernist-Regular'),
             ),
           ),
         ],

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-
 class AuthHeader extends StatelessWidget {
   const AuthHeader({
     Key? key,
@@ -15,14 +14,14 @@ class AuthHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        IconButton(
-          icon: SvgPicture.asset(
-            'assets/arrow-square-left.svg',
-            color: Colors.grey,
+        Container(
+          margin: EdgeInsets.all(16),
+          child: IconButton(
+            icon: Icon(Icons.arrow_back_ios),
+            onPressed: () {
+              Get.back();
+            },
           ),
-          onPressed: (){
-            Get.back();
-          },
         ),
         SvgPicture.asset(
           'assets/Component 1.svg',
