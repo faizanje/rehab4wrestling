@@ -15,49 +15,45 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: const Color(0xffEEEFFF),
-        appBar: AppBar(
-          title: Text(
-            "Select Body part",
-            style: TextStyle(
-                color: Colors.black87,
-                fontSize: 22,
-                fontWeight: FontWeight.bold),
-          ),
+    return Scaffold(
+      backgroundColor: const Color(0xffEEEFFF),
+      appBar: AppBar(
+        title: Text(
+          "Select Body part",
+          style: TextStyle(
+              color: Colors.black87, fontSize: 22, fontWeight: FontWeight.bold),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                height: MediaQuery.of(context).size.height,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 35.0, right: 35.0),
-                  child: MyHumanBodySelector(
-                    map: Maps.MALE,
-                    scale: 0.8,
-                    strokeColor: Colors.black87,
-                    selectedColor: MyColor.borderColor,
-                    // dotColor: Colors.black,
-                    // initialPainLevels: [],
-                    onChanged: (bodyPart, active) {
-                      controller.injuryName.value = active!.title;
-                      Get.toNamed(Routes.INJURY_CURE);
-                      // Future.delayed(const Duration(milliseconds: 500), () {
-                      //
-                      // });
-                    },
-                    onLevelChanged: (bodyPart) {
-                      print(bodyPart.length);
-                    },
-                    multiSelect: false,
-                    toggle: false,
-                  ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 35.0, right: 35.0),
+                child: MyHumanBodySelector(
+                  map: Maps.MALE,
+                  scale: 0.8,
+                  strokeColor: Colors.black87,
+                  selectedColor: MyColor.borderColor,
+                  // dotColor: Colors.black,
+                  // initialPainLevels: [],
+                  onChanged: (bodyPart, active) {
+                    controller.injuryName.value = active!.title;
+                    Get.toNamed(Routes.INJURY_CURE);
+                    // Future.delayed(const Duration(milliseconds: 500), () {
+                    //
+                    // });
+                  },
+                  onLevelChanged: (bodyPart) {
+                    print(bodyPart.length);
+                  },
+                  multiSelect: false,
+                  toggle: false,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
