@@ -24,7 +24,8 @@ class FullScreenVideoPlayerController extends GetxController {
   @override
   void onInit() {
     // url = Get.arguments as String;
-    url = "https://www.google.com/";
+    url =
+        "https://onedrive.live.com/download?cid=4A9CA65335913795&resid=4A9CA65335913795%212016&authkey=AMr7uOo_sH4R69k";
     betterPlayerDataSource = BetterPlayerDataSource.network(
       url,
       cacheConfiguration: BetterPlayerCacheConfiguration(
