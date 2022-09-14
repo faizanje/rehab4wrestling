@@ -3,6 +3,8 @@
 <plist version="1.0">
 <dict>
 
+    <key>com.apple.security.network.client</key>
+    <true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
