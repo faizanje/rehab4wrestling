@@ -1,4 +1,4 @@
-package com.example.rehab4wrestling
+package com.rehab.wrestling
 
 import io.flutter.embedding.android.FlutterActivity
 

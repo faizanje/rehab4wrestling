@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "143513153715",
+    "project_id": "rehab4wrestling",
+    "storage_bucket": "rehab4wrestling.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143513153715:android:f78cc4db32d1b4945980c6",
+        "android_client_info": {
+          "package_name": "com.example.rehab4wrestling"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "143513153715-413dkh2epbj2578plcp4sjfvcpbf50ku.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0H-__rrdw9mICegt3rGkoaTwrtwSyhOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "143513153715-413dkh2epbj2578plcp4sjfvcpbf50ku.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "143513153715-s7b8c4efbt66vcck6ka64b1vjcgtf1v2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.rehab4wrestling"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143513153715:android:06c8a38cce1aba7b5980c6",
+        "android_client_info": {
+          "package_name": "com.rehab.wrestling"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "143513153715-413dkh2epbj2578plcp4sjfvcpbf50ku.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0H-__rrdw9mICegt3rGkoaTwrtwSyhOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "143513153715-413dkh2epbj2578plcp4sjfvcpbf50ku.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "143513153715-s7b8c4efbt66vcck6ka64b1vjcgtf1v2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.rehab4wrestling"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
