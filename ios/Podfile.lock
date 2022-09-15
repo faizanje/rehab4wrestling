@@ -6,15 +6,69 @@ PODS:
     - HLSCachingReverseProxyServer
     - PINCache
   - Cache (6.0.0)
+  - Firebase/Auth (9.5.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (~> 9.5.0)
+  - Firebase/CoreOnly (9.5.0):
+    - FirebaseCore (= 9.5.0)
+  - firebase_auth (3.4.2):
+    - Firebase/Auth (= 9.5.0)
+    - firebase_core
+    - Flutter
+  - firebase_core (1.22.0):
+    - Firebase/CoreOnly (= 9.5.0)
+    - Flutter
+  - FirebaseAuth (9.5.0):
+    - FirebaseCore (~> 9.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/Environment (~> 7.7)
+    - GTMSessionFetcher/Core (< 3.0, >= 1.7)
+  - FirebaseCore (9.5.0):
+    - FirebaseCoreDiagnostics (~> 9.0)
+    - FirebaseCoreInternal (~> 9.0)
+    - GoogleUtilities/Environment (~> 7.7)
+    - GoogleUtilities/Logger (~> 7.7)
+  - FirebaseCoreDiagnostics (9.5.0):
+    - GoogleDataTransport (< 10.0.0, >= 9.1.4)
+    - GoogleUtilities/Environment (~> 7.7)
+    - GoogleUtilities/Logger (~> 7.7)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - FirebaseCoreInternal (9.5.0):
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
   - Flutter (1.0.0)
   - GCDWebServer (3.5.4):
     - GCDWebServer/Core (= 3.5.4)
   - GCDWebServer/Core (3.5.4)
+  - GoogleDataTransport (9.2.0):
+    - GoogleUtilities/Environment (~> 7.7)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/AppDelegateSwizzler (7.7.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (7.7.0):
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/Logger (7.7.0):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/Network (7.7.0):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (7.7.0)"
+  - GoogleUtilities/Reachability (7.7.0):
+    - GoogleUtilities/Logger
+  - GTMSessionFetcher/Core (2.1.0)
   - HLSCachingReverseProxyServer (0.1.0):
     - GCDWebServer (~> 3.5)
     - PINCache (>= 3.0.1-beta.3)
   - human_body_selector (0.0.1):
     - Flutter
+  - nanopb (2.30909.0):
+    - nanopb/decode (= 2.30909.0)
+    - nanopb/encode (= 2.30909.0)
+  - nanopb/decode (2.30909.0)
+  - nanopb/encode (2.30909.0)
   - path_provider_ios (0.0.1):
     - Flutter
   - PINCache (3.0.3):
@@ -25,11 +79,14 @@ PODS:
   - PINCache/Core (3.0.3):
     - PINOperation (~> 1.2.1)
   - PINOperation (1.2.1)
+  - PromisesObjC (2.1.1)
   - wakelock (0.0.1):
     - Flutter
 
 DEPENDENCIES:
   - better_player (from `.symlinks/plugins/better_player/ios`)
+  - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
+  - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - Flutter (from `Flutter`)
   - human_body_selector (from `.symlinks/plugins/human_body_selector/ios`)
   - path_provider_ios (from `.symlinks/plugins/path_provider_ios/ios`)
@@ -38,14 +95,28 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Cache
+    - Firebase
+    - FirebaseAuth
+    - FirebaseCore
+    - FirebaseCoreDiagnostics
+    - FirebaseCoreInternal
     - GCDWebServer
+    - GoogleDataTransport
+    - GoogleUtilities
+    - GTMSessionFetcher
     - HLSCachingReverseProxyServer
+    - nanopb
     - PINCache
     - PINOperation
+    - PromisesObjC
 
 EXTERNAL SOURCES:
   better_player:
     :path: ".symlinks/plugins/better_player/ios"
+  firebase_auth:
+    :path: ".symlinks/plugins/firebase_auth/ios"
+  firebase_core:
+    :path: ".symlinks/plugins/firebase_core/ios"
   Flutter:
     :path: Flutter
   human_body_selector:
@@ -58,13 +129,25 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   better_player: 2406bfe8175203c7a46fa15f9d778d73b12e1646
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
+  Firebase: 800f16f07af493d98d017446a315c27af0552f41
+  firebase_auth: f382bb5d0b34653dc1d19727f8f0b235b9881f3b
+  firebase_core: 31872a49ffe0bf6f834e7044c7334e433536735a
+  FirebaseAuth: 741918f1fa62ed23246a509279f91d42d79a713f
+  FirebaseCore: 25c0400b670fd1e2f2104349cd3b5dcce8d9418f
+  FirebaseCoreDiagnostics: 17cbf4e72b1dbd64bfdc33d4b1f07bce4f16f1d8
+  FirebaseCoreInternal: 50a8e39cae8abf72d5145d07ea34c3244f70862b
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
+  GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
+  GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
+  GTMSessionFetcher: ffbb25ec00ebcb5201adab0a56d808f6f1902d9f
   HLSCachingReverseProxyServer: 59935e1e0244ad7f3375d75b5ef46e8eb26ab181
   human_body_selector: 9cabaf1cf5c8582e453a87818b99ecf1ead1ffe5
+  nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   path_provider_ios: 14f3d2fd28c4fdb42f44e0f751d12861c43cee02
   PINCache: 7a8fc1a691173d21dbddbf86cd515de6efa55086
   PINOperation: 00c935935f1e8cf0d1e2d6b542e75b88fc3e5e20
+  PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   wakelock: d0fc7c864128eac40eba1617cb5264d9c940b46f
 
 PODFILE CHECKSUM: 4e8f8b2be68aeea4c0d5beb6ff1e79fface1d048
