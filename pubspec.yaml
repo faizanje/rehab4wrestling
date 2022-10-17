@@ -9,6 +9,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   better_player: any
   glass_kit: ^2.0.1
+  flutter_easyloading: ^3.0.5
   human_body_selector: ^0.0.1
   form_validator: ^1.0.2
   flutter_expanded_tile: ^0.3.6

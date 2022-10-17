@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:rehab4wrestling/app/routes/app_pages.dart';
 
 class WelcomeController extends GetxController {
   //TODO: Implement WelcomeController
@@ -7,16 +9,20 @@ class WelcomeController extends GetxController {
 
   @override
   void onInit() {
+    isUserSignIn();
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  void isUserSignIn(){
+    FirebaseAuth.instance
+        .idTokenChanges()
+        .listen((User? user) {
+      if (user == null) {
+        print('User is currently signed out!');
+      } else {
+        print('User is signed in!');
+        Get.toNamed(Routes.HOME);
+      }
+    });
   }
-
-  @override
-  void onClose() {}
-
-  void increment() => count.value++;
 }

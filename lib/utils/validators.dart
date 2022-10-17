@@ -3,3 +3,7 @@ TextFieldValidator getRequiredValidator() {
   return RequiredValidator(errorText: 'This field is required');
 }
 
+TextFieldValidator getRequiredEmail() {
+  return EmailValidator(errorText: 'Please enter a valid email');
+}
+
