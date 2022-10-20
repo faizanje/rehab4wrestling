@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
+import 'package:rehab4wrestling/app/data/constants/constants.dart';
 import 'package:rehab4wrestling/app/routes/app_pages.dart';
 import 'package:rehab4wrestling/utils/constant.dart';
 import 'package:rehab4wrestling/widgets/animated_button.dart';
@@ -70,7 +71,7 @@ class WelcomeView extends GetView<WelcomeController> {
                         child: const Text(
                           "Register",
                           style: TextStyle(
-                            color: Colors.blueAccent,
+                            color: MyColor.yellowColor,
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
                           ),

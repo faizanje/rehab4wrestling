@@ -27,7 +27,7 @@ class MyThemes {
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16.0),
                 side: const BorderSide(
-                  color: Color(0xff5B86E5),
+                  color: Color(0xffcc9900),
                 ),
               ),
             ),
@@ -39,11 +39,11 @@ class MyThemes {
           height: 52,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0),
-              side: const BorderSide(color: Color(0xff5B86E5))),
+              side: const BorderSide(color: Color(0xffcc9900))),
         ),
 
         colorScheme: const ColorScheme.light(
-          primary: Colors.cyan,
+          primary: MyColor.yellowColor,
         ),
         // elevatedButtonTheme: ElevatedButtonThemeData(
         //   style: ButtonStyle(
@@ -65,7 +65,7 @@ class MyThemes {
 
         inputDecorationTheme: const InputDecorationTheme(
           hintStyle: TextStyle(color: Colors.grey),
-          focusColor: Color(0xff36D1DC),
+          focusColor: MyColor.yellowColor,
           floatingLabelAlignment: FloatingLabelAlignment.start,
           errorStyle: TextStyle(
             color: Colors.red,
@@ -80,7 +80,7 @@ class MyThemes {
 
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(8)),
-            borderSide: BorderSide(width: 1, color: Colors.cyan),
+            borderSide: BorderSide(width: 1, color: MyColor.yellowColor),
           ),
           errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -91,7 +91,7 @@ class MyThemes {
 
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(8)),
-            borderSide: BorderSide(width: 1, color: Color(0xff36D1DC)),
+            borderSide: BorderSide(width: 1, color: MyColor.yellowColor),
           ),
 
           // filled: true,

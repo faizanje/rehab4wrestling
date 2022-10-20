@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:rehab4wrestling/app/data/constants/constants.dart';
 import 'package:rehab4wrestling/app/modules/auth/controllers/auth_controller.dart';
 import 'package:rehab4wrestling/app/routes/app_pages.dart';
 import 'package:rehab4wrestling/utils/constant.dart';
@@ -144,7 +145,7 @@ class LoginView extends GetView<AuthController> {
                               "Forgot password?",
                               style: TextStyle(
                                   fontWeight: FontWeight.w600,
-                                  color: Colors.cyan,
+                                  color: MyColor.yellowColor,
                                   fontSize: 14),
                             )),
                       ),
@@ -188,7 +189,7 @@ class LoginView extends GetView<AuthController> {
                                     text: ' Signup',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.cyan)),
+                                        color: MyColor.yellowColor)),
                               ],
                             ),
                           ),
