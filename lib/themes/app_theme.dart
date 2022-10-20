@@ -31,7 +31,7 @@ class MyThemes {
                 ),
               ),
             ),
-            textStyle: MaterialStateProperty.all(TextStyle(
+            textStyle: MaterialStateProperty.all(const TextStyle(
                 fontWeight: FontWeight.bold, fontFamily: 'Sk-Modernist')),
           ),
         ),
@@ -89,7 +89,7 @@ class MyThemes {
               borderRadius: BorderRadius.all(Radius.circular(8)),
               borderSide: BorderSide(width: 1, color: Color(0xffCCCCCC))),
 
-          focusedBorder: const OutlineInputBorder(
+          focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(8)),
             borderSide: BorderSide(width: 1, color: Color(0xff36D1DC)),
           ),
