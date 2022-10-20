@@ -4,6 +4,8 @@ import 'package:flutter_expanded_tile/flutter_expanded_tile.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
+import 'package:rehab4wrestling/app/data/models/args/VideosListArgs.dart';
+import 'package:rehab4wrestling/app/modules/home/controllers/home_controller.dart';
 import 'package:rehab4wrestling/app/routes/app_pages.dart';
 import 'package:rehab4wrestling/themes/app_theme.dart';
 import 'package:rehab4wrestling/utils/constant.dart';
@@ -12,7 +14,8 @@ import 'package:rehab4wrestling/widgets/animated_button.dart';
 import '../controllers/injury_cure_controller.dart';
 
 class InjuryCureView extends GetView<InjuryCureController> {
-  const InjuryCureView({Key? key}) : super(key: key);
+  InjuryCureView({Key? key}) : super(key: key);
+  final homeController = HomeController.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -27,115 +30,16 @@ class InjuryCureView extends GetView<InjuryCureController> {
           },
         ),
         title: const Text(
-          'Injury Video List',
+          'Injuries list',
           style: TextStyle(
               color: Colors.black87, fontSize: 22, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
-      body: Container(
-        margin: const EdgeInsets.all(16),
-        child: ListView.builder(
-          physics: const BouncingScrollPhysics(),
-          itemBuilder: (context, index) {
-            return Container(
-              margin: const EdgeInsets.symmetric(vertical: 6),
-              child: ClipRRect(
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(10),
-                ),
-                child: Theme(
-                  data: MyThemes().themeData.copyWith(
-                        dividerColor: Colors.transparent,
-                        // textTheme: Get.textTheme.copyWith(),
-                      ),
-                  child: ExpansionTile(
-                    leading: const Icon(
-                      Icons.sports_handball_sharp,
-                      color: Colors.cyan,
-                    ),
-                    backgroundColor: Colors.white,
-                    collapsedBackgroundColor: Colors.white,
-                    title: Text(
-                      "Injury ${index + 1}",
-                      style: const TextStyle(
-                        color: Colors.black87,
-                        fontSize: 16,
-                      ),
-                    ),
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(16),
-                        child: Column(
-                          children: [
-                            const Center(
-                              child: Text(
-                                "Lorem ipsum dolor sit amet. Ut accusamus magni id necessitatibus quasi nam repellat porro nam neque Quis in nulla voluptas qui omnis quidem? Qui voluptas minima sit unde facere et voluptatem facere. Vel architecto esse et doloribus quia est dolorum inventore et esse odio et voluptas voluptatem est commodi dolore.",
-                                style: TextStyle(
-                                  color: Colors.black87,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            Container(
-                              height: 42,
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                boxShadow: const [
-                                  BoxShadow(
-                                      color: Colors.black26,
-                                      offset: Offset(0, 4),
-                                      blurRadius: 5.0)
-                                ],
-                                gradient: MyColor.linearGradient,
-                                color: Colors.deepPurple.shade300,
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: ElevatedButton(
-                                style: ButtonStyle(
-                                  elevation: MaterialStateProperty.all(0),
-                                  shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                  ),
-                                ),
-                                onPressed: () {
-                                  Get.toNamed(Routes.FULL_SCREEN_VIDEO_PLAYER);
-                                },
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: const [
-                                    Icon(Icons.play_circle),
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(horizontal: 5.0),
-                                      child: Text(
-                                        "Watch video",
-                                        style: TextStyle(
-                                          // fontWeight: FontWeight.w700,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            );
-          },
-          itemCount: 15,
-        ),
+      body: homeController.obx(
+        (data) {
+          return _buildBody();
+        },
       ),
     );
 
@@ -174,6 +78,120 @@ class InjuryCureView extends GetView<InjuryCureController> {
     //       ),
     //     ),
     // );
+  }
+
+  Container _buildBody() {
+    final wrestlingDataItems =
+        homeController.wrestlingDataItemsMapObs[controller.bodyPartKey]!;
+    return Container(
+      margin: const EdgeInsets.all(16),
+      child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
+        itemBuilder: (context, index) {
+          final injury = wrestlingDataItems.data.injuries[index];
+          return Container(
+            margin: const EdgeInsets.symmetric(vertical: 6),
+            child: ClipRRect(
+              borderRadius: const BorderRadius.all(
+                Radius.circular(10),
+              ),
+              child: Theme(
+                data: MyThemes().themeData.copyWith(
+                      dividerColor: Colors.transparent,
+                      // textTheme: Get.textTheme.copyWith(),
+                    ),
+                child: ExpansionTile(
+                  leading: const Icon(
+                    Icons.sports_handball_sharp,
+                    color: Colors.cyan,
+                  ),
+                  backgroundColor: Colors.white,
+                  collapsedBackgroundColor: Colors.white,
+                  title: Text(
+                    "${injury.name}",
+                    style: const TextStyle(
+                      color: Colors.black87,
+                      fontSize: 16,
+                    ),
+                  ),
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        children: [
+                          Center(
+                            child: Text(
+                              injury.description,
+                              style: const TextStyle(
+                                color: Colors.black87,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                            height: 42,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: Colors.black26,
+                                    offset: Offset(0, 4),
+                                    blurRadius: 5.0)
+                              ],
+                              gradient: MyColor.linearGradient,
+                              color: Colors.deepPurple.shade300,
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                elevation: MaterialStateProperty.all(0),
+                                shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {
+                                Get.toNamed(Routes.VIDEOS_LIST,
+                                    arguments: VideosListArgs(
+                                        bodyPartKey: controller.bodyPartKey,
+                                        injury: injury));
+                                // Get.toNamed(Routes.FULL_SCREEN_VIDEO_PLAYER);
+                              },
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: const [
+                                  Icon(Icons.info),
+                                  Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 5.0),
+                                    child: Text(
+                                      "Details",
+                                      style: TextStyle(
+                                        // fontWeight: FontWeight.w700,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+        itemCount: wrestlingDataItems.data.injuries.length,
+      ),
+    );
   }
 }
 

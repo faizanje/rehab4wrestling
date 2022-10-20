@@ -2,9 +2,12 @@ import 'package:better_player/better_player.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rehab4wrestling/app/data/models/MyVideo.dart';
+import 'package:rehab4wrestling/app/data/models/args/FullScreenVideoArgs.dart';
 
 class FullScreenVideoPlayerController extends GetxController {
-  late String url;
+  late final FullScreenVideoArgs args;
+  late final MyVideo video;
   late final videoPlayerController = BetterPlayerController(
     const BetterPlayerConfiguration(
       aspectRatio: 16 / 9,
@@ -23,9 +26,11 @@ class FullScreenVideoPlayerController extends GetxController {
 
   @override
   void onInit() {
-    // url = Get.arguments as String;
-    url =
-        "https://onedrive.live.com/download?cid=4A9CA65335913795&resid=4A9CA65335913795%212016&authkey=AMr7uOo_sH4R69k";
+    args = Get.arguments;
+    video = args.video;
+    final url = video.url;
+    // url =
+    //     "https://onedrive.live.com/download?cid=4A9CA65335913795&resid=4A9CA65335913795%212016&authkey=AMr7uOo_sH4R69k";
     betterPlayerDataSource = BetterPlayerDataSource.network(
       url,
       cacheConfiguration: BetterPlayerCacheConfiguration(
@@ -49,5 +54,8 @@ class FullScreenVideoPlayerController extends GetxController {
   }
 
   @override
-  void onClose() {}
+  void onClose() {
+    videoPlayerController.dispose(forceDispose: true);
+    super.onClose();
+  }
 }

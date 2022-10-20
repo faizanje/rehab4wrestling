@@ -10,6 +10,8 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/injury_cure/bindings/injury_cure_binding.dart';
 import '../modules/injury_cure/views/injury_cure_view.dart';
+import '../modules/videos_list/bindings/videos_list_binding.dart';
+import '../modules/videos_list/views/videos_list_view.dart';
 import '../modules/welcome/bindings/welcome_binding.dart';
 import '../modules/welcome/views/welcome_view.dart';
 
@@ -56,6 +58,11 @@ class AppPages {
       name: _Paths.WELCOME,
       page: () => WelcomeView(),
       binding: WelcomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.VIDEOS_LIST,
+      page: () => VideosListView(),
+      binding: VideosListBinding(),
     ),
   ];
 }

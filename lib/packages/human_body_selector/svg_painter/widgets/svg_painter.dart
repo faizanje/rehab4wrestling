@@ -24,7 +24,7 @@ class SvgPainter extends CustomPainter {
       this.strokeColor,
       this.dotColor,
       this.repaint,
-      this.scale = 1.0})
+      this.scale = 10})
       : super(repaint: repaint);
 
   @override
@@ -36,17 +36,17 @@ class SvgPainter extends CustomPainter {
 
     final fillPen = Paint()
       ..color = Colors.white60
-      ..strokeWidth = 1.0
+      ..strokeWidth = 10
       ..style = PaintingStyle.fill;
 
     final selectedPen = Paint()
       ..color = selectedColor ?? Colors.blue
-      ..strokeWidth = 1.0
+      ..strokeWidth = 10
       ..style = PaintingStyle.fill;
 
     final redDot = Paint()
       ..color = dotColor ?? Colors.red
-      ..strokeWidth = 3.0
+      ..strokeWidth = 15
       ..style = PaintingStyle.fill;
 
     final bounds = city.path.getBounds();
@@ -67,7 +67,7 @@ class SvgPainter extends CustomPainter {
     } else {
       canvas.drawPath(city.path, fillPen);
     }
-    canvas.drawCircle(bounds.center, 3.0, redDot);
+    canvas.drawCircle(bounds.center, 5, redDot);
     canvas.drawPath(city.path, pen);
   }
 

@@ -11,6 +11,7 @@ abstract class Routes {
   static const FORGOT_PASSWORD = _Paths.FORGOT_PASSWORD;
   static const INJURY_CURE = _Paths.INJURY_CURE;
   static const WELCOME = _Paths.WELCOME;
+  static const VIDEOS_LIST = _Paths.VIDEOS_LIST;
 }
 
 abstract class _Paths {
@@ -23,4 +24,5 @@ abstract class _Paths {
   static const FORGOT_PASSWORD = '/forgot';
   static const INJURY_CURE = '/injury-cure';
   static const WELCOME = '/welcome';
+  static const VIDEOS_LIST = '/videos-list';
 }

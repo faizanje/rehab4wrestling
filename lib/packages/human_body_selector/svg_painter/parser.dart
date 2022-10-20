@@ -50,7 +50,10 @@ class Parser {
       } else {
         sizeController.addBounds(city.path.getBounds());
       }
+      // if (city.title != 'nose' && city.title.contains('lip')) {
       cityList.add(city);
+      // }
+      // print(city.title);
     });
     return cityList;
   }

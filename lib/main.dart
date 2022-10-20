@@ -11,11 +11,11 @@ import 'app/routes/app_pages.dart';
 import 'firebase_options.dart';
 
 void main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
     runApp(
@@ -31,31 +31,26 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     if(FirebaseAuth.instance.currentUser!=null){
-       return     GetMaterialApp(
-         debugShowCheckedModeBanner: false,
-         title: "Application",
-         initialRoute: Routes.HOME,
-         getPages: AppPages.routes,
-         defaultTransition: Transition.rightToLeft,
-         theme: MyThemes().themeData,
-         builder: EasyLoading.init(),
-       );
-
+    if (FirebaseAuth.instance.currentUser != null) {
+      return GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: "Application",
+        initialRoute: Routes.HOME,
+        getPages: AppPages.routes,
+        defaultTransition: Transition.rightToLeft,
+        theme: MyThemes().themeData,
+        builder: EasyLoading.init(),
+      );
+    } else {
+      return GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: "Application",
+        initialRoute: AppPages.INITIAL,
+        getPages: AppPages.routes,
+        defaultTransition: Transition.rightToLeft,
+        theme: MyThemes().themeData,
+        builder: EasyLoading.init(),
+      );
     }
-     else{
-       return GetMaterialApp(
-         debugShowCheckedModeBanner: false,
-         title: "Application",
-         initialRoute: AppPages.INITIAL,
-         getPages: AppPages.routes,
-         defaultTransition: Transition.rightToLeft,
-         theme: MyThemes().themeData,
-         builder: EasyLoading.init(),
-       );
-     }
-
-
-
   }
 }

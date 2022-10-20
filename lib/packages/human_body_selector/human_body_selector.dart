@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rehab4wrestling/packages/human_body_selector/svg_painter/maps.dart';
+
 // import 'package:rehab4wrestling/packages/human_body_selector/svg_painter/models/body_part.dart';
 import 'package:rehab4wrestling/packages/human_body_selector/svg_painter/parser.dart';
 import 'package:rehab4wrestling/packages/human_body_selector/svg_painter/size_controller.dart';
@@ -23,6 +24,8 @@ class MyHumanBodySelector extends StatefulWidget {
   final bool enabled;
   final double scale;
 
+  final List<String>? clickableBodyParts;
+
   const MyHumanBodySelector({
     Key? key,
     required this.map,
@@ -40,6 +43,7 @@ class MyHumanBodySelector extends StatefulWidget {
     this.initialSelectedPartsList,
     this.initialPainLevels,
     this.scale = 1.0,
+    this.clickableBodyParts,
   }) : super(key: key);
 
   @override
@@ -192,9 +196,24 @@ class SelectableSvgState extends State<MyHumanBodySelector> {
   }
 
   Widget _buildStackItem(BodyPart city) {
+    // print('${widget.clickableBodyParts?.contains(city.title)}: ${city.title}');
+
+    // print('--------------------- ${city.title}--------------------');
+    // widget.clickableBodyParts?.forEach((element) {
+    //   print('${element} == ${city.title}: ${element == city.title}');
+    // });
     return GestureDetector(
       behavior: HitTestBehavior.deferToChild,
-      onTap: () => widget.enabled ? _toggleButton(city) : null,
+      onTap: () {
+        if (widget.enabled) {
+          if (widget.clickableBodyParts == null) {
+            _toggleButton(city);
+          } else if (widget.clickableBodyParts!.contains(city.title)) {
+            _toggleButton(city);
+          }
+        }
+        // widget.enabled ? _toggleButton(city) : null;
+      },
       onLongPress: () => widget.enabled ? tryRemove(city) : null,
       child: CustomPaint(
         child: Container(
@@ -212,7 +231,11 @@ class SelectableSvgState extends State<MyHumanBodySelector> {
           city: city,
           isSelected: selectedPartsList.contains(city),
           isFocused: lastSelected == city,
-          dotColor: widget.dotColor,
+          dotColor: widget.clickableBodyParts == null
+              ? widget.dotColor
+              : widget.clickableBodyParts!.contains(city.title)
+                  ? widget.dotColor
+                  : Colors.transparent,
           selectedColor:
               widget.selectedColor ?? sliderGradient.colors[city.painLevel],
           strokeColor: widget.strokeColor,

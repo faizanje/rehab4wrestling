@@ -18,7 +18,7 @@ class FullScreenVideoPlayerView
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
           onPressed: () {
             Get.back();
           },
@@ -30,36 +30,74 @@ class FullScreenVideoPlayerView
         ),
         centerTitle: true,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          AspectRatio(
-            aspectRatio: 16 / 9,
-            child: BetterPlayer(
-              controller: controller.videoPlayerController,
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AspectRatio(
+              aspectRatio: 16 / 9,
+              child: BetterPlayer(
+                controller: controller.videoPlayerController,
+              ),
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 20),
-            child: Text(
-              "Injury 1",
-              style: TextStyle(
-                  color: Colors.black87,
-                  fontSize: 26,
-                  fontWeight: FontWeight.bold),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20),
+              child: Text(
+                controller.args.video.name,
+                style: const TextStyle(
+                    color: Colors.black87,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: Text(
-              "Lorem ipsum dolor sit amet. Ut accusamus magni id necessitatibus quasi nam repellat porro nam neque Quis in nulla voluptas qui omnis quidem? Qui voluptas minima sit unde facere et voluptatem facere. Vel architecto esse et doloribus quia est dolorum inventore et esse odio et voluptas voluptatem est commodi dolore.",
-              style: TextStyle(
-                  color: Colors.black87,
-                  fontSize: 16,
-                  package: 'assets:fonts/Sk-Modernist-Regular'),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  RichText(
+                    text: TextSpan(
+                        style: const TextStyle(
+                          color: Colors.black87,
+                          fontSize: 16,
+                          fontFamily: 'Sk-Modernist',
+                        ),
+                        children: [
+                          const TextSpan(
+                            text: 'Injury: ',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text: controller.args.injuries.name,
+                          ),
+                        ]),
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  RichText(
+                    text: TextSpan(
+                        style: const TextStyle(
+                          color: Colors.black87,
+                          fontSize: 16,
+                          fontFamily: 'Sk-Modernist',
+                        ),
+                        children: [
+                          const TextSpan(
+                            text: 'Injury description: ',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text: controller.args.injuries.description,
+                          ),
+                        ]),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

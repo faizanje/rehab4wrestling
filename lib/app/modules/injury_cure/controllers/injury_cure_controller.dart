@@ -1,12 +1,11 @@
 import 'package:get/get.dart';
 
 class InjuryCureController extends GetxController {
-  //TODO: Implement InjuryCureController
-
-  final count = 0.obs;
+  late final String bodyPartKey;
 
   @override
   void onInit() {
+    bodyPartKey = Get.arguments;
     super.onInit();
   }
 
@@ -18,5 +17,4 @@ class InjuryCureController extends GetxController {
   @override
   void onClose() {}
 
-  void increment() => count.value++;
 }

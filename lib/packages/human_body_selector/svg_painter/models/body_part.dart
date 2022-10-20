@@ -10,7 +10,12 @@ class BodyPart extends Equatable {
   Path? transformedPath;
   int painLevel = 0;
 
-  BodyPart({required this.id, required this.title, required this.path, this.transformedPath, this.painLevel = 0});
+  BodyPart(
+      {required this.id,
+      required this.title,
+      required this.path,
+      this.transformedPath,
+      this.painLevel = 0});
 
   /// transforms a [_path] into [_transformedPath] using given [matrix]
   void transform(Matrix4 matrix) =>
@@ -18,4 +23,14 @@ class BodyPart extends Equatable {
 
   @override
   List<Object?> get props => [id];
- }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "id": this.id,
+      "title": this.title,
+      "path": this.path,
+      "transformedPath": this.transformedPath,
+      "painLevel": this.painLevel,
+    };
+  }
+}

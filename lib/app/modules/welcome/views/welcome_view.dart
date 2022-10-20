@@ -9,69 +9,80 @@ import 'package:rehab4wrestling/widgets/animated_button.dart';
 import '../controllers/welcome_controller.dart';
 
 class WelcomeView extends GetView<WelcomeController> {
+  const WelcomeView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            child: Image.asset('assets/bg.png'),
-          ),
-          Spacer(),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  "Rehab for Wrestling",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 36,
-                      fontWeight: FontWeight.w700),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: Container(
+                // color: Colors.red,
+                margin: EdgeInsets.only(top: Get.height * 0.1),
+                child: AspectRatio(
+                  aspectRatio: 16 / 9,
+                  child: Image.asset(
+                      'assets/Peak Performance_Original_Logo 2.png'),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 16.0, bottom: 26),
-                  child: Text(
-                    "Please login your account to use our app. If you are a new user, Please register yourself.",
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Rehab for Wrestling",
                     style: TextStyle(
-                      color: Colors.black.withOpacity(0.5),
-                      fontSize: 18,
+                        color: Colors.black,
+                        fontSize: 36,
+                        fontWeight: FontWeight.w700),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 16.0, bottom: 26),
+                    child: Text(
+                      "Please login your account to use our app. If you are a new user, Please register yourself.",
+                      style: TextStyle(
+                        color: Colors.black.withOpacity(0.5),
+                        fontSize: 18,
+                      ),
                     ),
                   ),
-                ),
-                AnimatedCustomButton(
-                  title: "Login",
-                  onTap: () {
-                    Future.delayed(Duration(milliseconds: 500), () {
-                      Get.toNamed(Routes.LOGIN);
-                    });
-                  },
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 17.0),
-                  child: SizedBox(
-                    height: 50,
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Get.toNamed(Routes.AUTH);
-                      },
-                      child: const Text(
-                        "Register",
-                        style: TextStyle(
-                          color: Colors.blueAccent,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16,
+                  AnimatedCustomButton(
+                    title: "Login",
+                    onTap: () {
+                      Future.delayed(Duration(milliseconds: 500), () {
+                        Get.toNamed(Routes.LOGIN);
+                      });
+                    },
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 17.0),
+                    child: SizedBox(
+                      height: 50,
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Get.toNamed(Routes.AUTH);
+                        },
+                        child: const Text(
+                          "Register",
+                          style: TextStyle(
+                            color: Colors.blueAccent,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

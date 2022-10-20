@@ -3,6 +3,8 @@
 // const kMediaURL =
 //     "https://onedrive.live.com/download?cid=4A9CA65335913795&resid=4A9CA65335913795%211980&authkey=AJrWqT6ZiJZMFQg";
 
+import 'dart:ui';
+
 const fullBodyURLList = [
   "https://onedrive.live.com/download?cid=4A9CA65335913795&resid=4A9CA65335913795%211985&authkey=AALcuNydpzU5H4Q",
   "https://onedrive.live.com/download?cid=4A9CA65335913795&resid=4A9CA65335913795%211985&authkey=AALcuNydpzU5H4Q",
@@ -25,3 +27,7 @@ const fullBody576URLList = [
   "https://onedrive.live.com/download?cid=4A9CA65335913795&resid=4A9CA65335913795%211998&authkey=AB2u_1db_uUWV_0",
   "https://onedrive.live.com/download?cid=4A9CA65335913795&resid=4A9CA65335913795%211999&authkey=ANbtbVX3BpFFjQM",
 ];
+
+class MyColors {
+  static Color blue = const Color(0xff5B86E5);
+}

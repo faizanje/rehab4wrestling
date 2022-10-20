@@ -21,22 +21,21 @@ class AuthController extends GetxController {
     const Color(0xffCCCCCC)
   ].obs;
 
- @override
+  @override
   void onInit() {
     super.onInit();
   }
 
-
-
   Future<void> resetPassword({required String email}) async {
     try {
-      final auth = await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      EasyLoading.show();
+      final auth =
+          await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
 
       // Get.toNamed(Routes.HOME);
       EasyLoading.showSuccess("Success!");
       SnackBarUtils.showSnackBar("Reset password link has been sent!");
       Get.toNamed(Routes.LOGIN);
-
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         EasyLoading.showError("No user found for that email.");
@@ -45,57 +44,50 @@ class AuthController extends GetxController {
     }
   }
 
-  Future<void> signInUser(String email,String password) async{
+  Future<void> signInUser(String email, String password) async {
     EasyLoading.show(status: 'loading...');
     try {
-      UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: email,
-          password: password
-      );
+      UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
 
       print(userCredential.user);
-      Get.toNamed(Routes.HOME);
+      Get.offAllNamed(Routes.HOME);
       EasyLoading.showSuccess("Success!");
-
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-          EasyLoading.showError("No user found for that email.");
+        EasyLoading.showError("No user found for that email.");
 
         print('No user found for that email.');
       } else if (e.code == 'wrong-password') {
         print('Wrong password provided for that user.');
         EasyLoading.showError('Wrong password provided for that user.');
-
       }
     }
-
-
   }
 
-    Future<void> signUpUser(String email,String password) async {
-      EasyLoading.show(status: 'loading...');
-
-
-      try {
-        final credential = await FirebaseAuth.instance
-            .createUserWithEmailAndPassword(
-          email: email,
-          password: password,
-        );
-        EasyLoading.showSuccess('Success!');
-        // SnackBarUtils.showSnackBar("Account created successfully");
-        Get.toNamed(Routes.LOGIN);
-        print("function end");
-      } on FirebaseAuthException catch (e) {
-        if (e.code == 'weak-password') {
-          SnackBarUtils.showSnackBar('The password provided is too weak.');
-          print('The password provided is too weak.');
-        } else if (e.code == 'email-already-in-use') {
-          SnackBarUtils.showSnackBar('The account already exists for that email.');
-          print('The account already exists for that email.');
-        }
-      } catch (e) {
-        print(e);
+  Future<void> signUpUser(String email, String password) async {
+    EasyLoading.show(status: 'loading...');
+    try {
+      final credential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      EasyLoading.showSuccess('Success!');
+      // SnackBarUtils.showSnackBar("Account created successfully");
+      Get.offAllNamed(Routes.HOME);
+      print("function end");
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        SnackBarUtils.showSnackBar('The password provided is too weak.');
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        SnackBarUtils.showSnackBar(
+            'The account already exists for that email.');
+        print('The account already exists for that email.');
       }
+    } catch (e) {
+      print(e);
     }
-    }
+  }
+}

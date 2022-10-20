@@ -11,7 +11,7 @@ import 'package:rehab4wrestling/widgets/animated_button.dart';
 import 'package:rehab4wrestling/widgets/auth_header.dart';
 
 class ForgotPasswordView extends GetView<AuthController> {
-   ForgotPasswordView({Key? key}) : super(key: key);
+  ForgotPasswordView({Key? key}) : super(key: key);
   TextEditingController emailController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
@@ -88,11 +88,10 @@ class ForgotPasswordView extends GetView<AuthController> {
                       AnimatedCustomButton(
                         title: "Submit",
                         onTap: () {
-    if (_formKey.currentState!.validate()) {
-      controller.resetPassword(email: emailController.text);
-
-
-    }
+                          if (_formKey.currentState!.validate()) {
+                            controller.resetPassword(
+                                email: emailController.text);
+                          }
 
                           // Get.back();
                           // if (_formKey.currentState!.validate()) {
@@ -120,4 +119,3 @@ class ForgotPasswordView extends GetView<AuthController> {
     );
   }
 }
-

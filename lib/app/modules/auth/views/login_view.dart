@@ -11,7 +11,7 @@ import 'package:rehab4wrestling/widgets/animated_button.dart';
 import 'package:rehab4wrestling/widgets/auth_header.dart';
 
 class LoginView extends GetView<AuthController> {
-   LoginView({Key? key}) : super(key: key);
+  LoginView({Key? key}) : super(key: key);
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -104,8 +104,8 @@ class LoginView extends GetView<AuthController> {
                                       hintText: "Password",
                                       labelText: "Password",
                                       prefixIconConstraints:
-                                      const BoxConstraints(
-                                          minWidth: 0, minHeight: 0),
+                                          const BoxConstraints(
+                                              minWidth: 0, minHeight: 0),
                                       suffixIcon: Obx(() {
                                         return IconButton(
                                           icon: Icon(controller.isHide.isTrue
@@ -114,9 +114,9 @@ class LoginView extends GetView<AuthController> {
                                           onPressed: () {
                                             controller.isHide.isTrue
                                                 ? controller.isHide.value =
-                                            false
+                                                    false
                                                 : controller.isHide.value =
-                                            true;
+                                                    true;
                                           },
                                         );
                                       }),
@@ -157,7 +157,8 @@ class LoginView extends GetView<AuthController> {
                           if (_formKey.currentState!.validate()) {
                             controller.flag.value = true;
 
-                            controller.signInUser(emailController.text, passwordController.text);
+                            controller.signInUser(
+                                emailController.text, passwordController.text);
                             Future.delayed(const Duration(seconds: 1), () {
                               // Get.toNamed(Routes.HOME);
                             });
@@ -172,7 +173,6 @@ class LoginView extends GetView<AuthController> {
                       Center(
                         child: InkWell(
                           onTap: () {
-
                             Get.toNamed(Routes.AUTH);
                           },
                           child: RichText(
