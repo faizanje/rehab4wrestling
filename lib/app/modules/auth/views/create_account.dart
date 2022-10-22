@@ -190,7 +190,7 @@ class CreateAccountView extends GetView<AuthController> {
                                     text: ' Login!',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.cyan)),
+                                        color: MyColor.yellowColor)),
                               ],
                             ),
                           ),

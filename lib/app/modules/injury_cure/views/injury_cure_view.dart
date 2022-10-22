@@ -103,7 +103,7 @@ class InjuryCureView extends GetView<InjuryCureController> {
                 child: ExpansionTile(
                   leading: const Icon(
                     Icons.sports_handball_sharp,
-                    color: Colors.cyan,
+                    color: MyColor.yellowColor,
                   ),
                   backgroundColor: Colors.white,
                   collapsedBackgroundColor: Colors.white,

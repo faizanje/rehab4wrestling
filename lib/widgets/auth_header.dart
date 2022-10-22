@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:rehab4wrestling/utils/constant.dart';
 
 class AuthHeader extends StatelessWidget {
   const AuthHeader({
@@ -26,6 +27,7 @@ class AuthHeader extends StatelessWidget {
         SvgPicture.asset(
           'assets/Component 1.svg',
           fit: BoxFit.cover,
+          color: MyColor.yellowColor,
         ),
       ],
     );

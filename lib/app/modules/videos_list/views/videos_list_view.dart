@@ -10,6 +10,7 @@ import 'package:rehab4wrestling/app/modules/home/controllers/home_controller.dar
 import 'package:rehab4wrestling/app/routes/app_pages.dart';
 import 'package:rehab4wrestling/packages/human_body_selector/svg_painter/constant.dart';
 import 'package:rehab4wrestling/themes/app_theme.dart';
+import 'package:rehab4wrestling/utils/constant.dart';
 
 import '../controllers/videos_list_controller.dart';
 
@@ -69,7 +70,7 @@ class VideosListView extends GetView<VideosListController> {
               borderRadius: BorderRadius.circular(
                 kCornerRadius,
               ),
-              color: MyColors.blue.withOpacity(0.1),
+              color: MyColor.yellowColor.withOpacity(0.1),
             ),
             child: TabBar(
               // give the indicator a decoration (color and border radius)
@@ -78,7 +79,7 @@ class VideosListView extends GetView<VideosListController> {
                   kCornerRadius,
                 ),
                 // color: MyColors.blue_100.withOpacity(0.5),
-                color: MyColors.blue,
+                color: MyColor.yellowColor,
               ),
               labelColor: Colors.white,
               unselectedLabelColor: Colors.black,
@@ -141,7 +142,7 @@ class RehabVideosList extends StatelessWidget {
                   ),
                   trailing: const Icon(
                     Icons.play_circle,
-                    color: Colors.cyan,
+                    color: MyColor.yellowColor,
                   ),
                   // backgroundColor: Colors.white,
                   // collapsedBackgroundColor: Colors.white,
@@ -199,9 +200,9 @@ class WrestlingVideosList extends StatelessWidget {
                   },
                   leading: const Icon(
                     Icons.movie,
-                    color: Colors.cyan,
+
                   ),
-                  trailing: const Icon(Icons.play_circle),
+                  trailing: const Icon(Icons.play_circle, color: MyColor.yellowColor,),
                   // backgroundColor: Colors.white,
                   // collapsedBackgroundColor: Colors.white,
                   title: Text(

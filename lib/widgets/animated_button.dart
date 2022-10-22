@@ -24,12 +24,7 @@ class AnimatedCustomButton extends StatelessWidget {
       backgroundColor: Colors.black,
       gradient: MyColor.linearGradient,
       borderRadius: 16,
-      selectedGradientColor: const LinearGradient(
-        colors: [
-          Color(0xff5B86E5),
-          Color(0xff36D1DC),
-        ],
-      ),
+      selectedGradientColor: MyColor.selectedlinearGradient,
       transitionType: TransitionType.CENTER_LR_IN,
       textStyle: const TextStyle(
         fontSize: 18,
