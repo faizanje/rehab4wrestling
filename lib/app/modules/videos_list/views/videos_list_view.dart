@@ -31,7 +31,7 @@ class VideosListView extends GetView<VideosListController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffEEEFFF),
+      //  backgroundColor: const Color(0xffEEEFFF),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leading: IconButton(
@@ -40,8 +40,8 @@ class VideosListView extends GetView<VideosListController> {
             Get.back();
           },
         ),
-        title: const Text(
-          'Videos list',
+        title: Text(
+          '${kBodyPartNameMap[controller.args.bodyPartArgs.selectedBodyPartName]!} videos',
           style: TextStyle(
               color: Colors.black87, fontSize: 22, fontWeight: FontWeight.bold),
         ),
@@ -70,7 +70,7 @@ class VideosListView extends GetView<VideosListController> {
               borderRadius: BorderRadius.circular(
                 kCornerRadius,
               ),
-              color: MyColor.yellowColor.withOpacity(0.1),
+              color: MyColor.orangeLight.withOpacity(0.1),
             ),
             child: TabBar(
               // give the indicator a decoration (color and border radius)
@@ -79,7 +79,7 @@ class VideosListView extends GetView<VideosListController> {
                   kCornerRadius,
                 ),
                 // color: MyColors.blue_100.withOpacity(0.5),
-                color: MyColor.yellowColor,
+                color: MyColor.orangeDark,
               ),
               labelColor: Colors.white,
               unselectedLabelColor: Colors.black,
@@ -142,7 +142,7 @@ class RehabVideosList extends StatelessWidget {
                   ),
                   trailing: const Icon(
                     Icons.play_circle,
-                    color: MyColor.yellowColor,
+                    color: MyColor.orangeDark,
                   ),
                   // backgroundColor: Colors.white,
                   // collapsedBackgroundColor: Colors.white,
@@ -200,9 +200,11 @@ class WrestlingVideosList extends StatelessWidget {
                   },
                   leading: const Icon(
                     Icons.movie,
-
                   ),
-                  trailing: const Icon(Icons.play_circle, color: MyColor.yellowColor,),
+                  trailing: const Icon(
+                    Icons.play_circle,
+                    color: MyColor.orangeDark,
+                  ),
                   // backgroundColor: Colors.white,
                   // collapsedBackgroundColor: Colors.white,
                   title: Text(

@@ -22,10 +22,25 @@ class WelcomeView extends GetView<WelcomeController> {
               child: Container(
                 // color: Colors.red,
                 margin: EdgeInsets.only(top: Get.height * 0.1),
-                child: AspectRatio(
-                  aspectRatio: 16 / 9,
-                  child: Image.asset(
-                      'assets/Peak Performance_Original_Logo 2.png'),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      // color: Colors.blue,
+                      margin: EdgeInsets.symmetric(horizontal: 16),
+                      // child: AspectRatio(
+                      //   aspectRatio: 16 / 9,
+                      child: Image.asset(
+                          'assets/Peak Performance_Original_Logo 2.png'),
+                      // ),
+                    ),
+                    const Text(
+                      '(Est. 1996)',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -71,7 +86,7 @@ class WelcomeView extends GetView<WelcomeController> {
                         child: const Text(
                           "Register",
                           style: TextStyle(
-                            color: MyColor.yellowColor,
+                            color: MyColor.orangeDark,
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
                           ),

@@ -27,7 +27,7 @@ class AuthHeader extends StatelessWidget {
         SvgPicture.asset(
           'assets/Component 1.svg',
           fit: BoxFit.cover,
-          color: MyColor.yellowColor,
+          color: MyColor.orangeLight,
         ),
       ],
     );

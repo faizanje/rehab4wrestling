@@ -64,3 +64,25 @@ Map<String, String> kBodyPathToDbPathMap = {
   "right foot": "Ankle-Foot-Big Toe",
   "left foot": "Ankle-Foot-Big Toe",
 };
+
+Map<String, String> kBodyPartNameMap = {
+  "neck": "Neck",
+  "right shoulder": "Shoulder",
+  "left shoulder": "Shoulder",
+  "right arm": "Arm",
+  "left arm": "Arm",
+  "right elbow": "Elbow",
+  "left elbow": "Elbow",
+  "right forearm": "Forearm",
+  "left forearm": "Forearm",
+  "right wrist": "Wrist",
+  "left wrist": "Wrist",
+  "right hand": "Hand",
+  "left hand": "Hand",
+  "right knee": "Knee",
+  "left knee": "Knee",
+  "right ankle": "Ankle",
+  "left ankle": "Ankle",
+  "right foot": "Foot",
+  "left foot": "Foot",
+};

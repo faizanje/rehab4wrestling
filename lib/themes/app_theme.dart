@@ -4,6 +4,7 @@ import 'package:rehab4wrestling/utils/constant.dart';
 
 class MyThemes {
   ThemeData get themeData => ThemeData(
+        scaffoldBackgroundColor: Colors.grey.withOpacity(0.1),
         appBarTheme: const AppBarTheme(
           toolbarHeight: 50,
           color: Colors.transparent,
@@ -27,7 +28,7 @@ class MyThemes {
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16.0),
                 side: const BorderSide(
-                  color: Color(0xffcc9900),
+                  color: MyColor.orangeDark,
                 ),
               ),
             ),
@@ -39,11 +40,11 @@ class MyThemes {
           height: 52,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0),
-              side: const BorderSide(color: Color(0xffcc9900))),
+              side: const BorderSide(color: MyColor.orangeDark)),
         ),
 
         colorScheme: const ColorScheme.light(
-          primary: MyColor.yellowColor,
+          primary: MyColor.orangeDark,
         ),
         // elevatedButtonTheme: ElevatedButtonThemeData(
         //   style: ButtonStyle(
@@ -62,10 +63,9 @@ class MyThemes {
         //     ),
         //   ),
         // ),
-
         inputDecorationTheme: const InputDecorationTheme(
           hintStyle: TextStyle(color: Colors.grey),
-          focusColor: MyColor.yellowColor,
+          focusColor: MyColor.orangeDark,
           floatingLabelAlignment: FloatingLabelAlignment.start,
           errorStyle: TextStyle(
             color: Colors.red,
@@ -80,7 +80,7 @@ class MyThemes {
 
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(8)),
-            borderSide: BorderSide(width: 1, color: MyColor.yellowColor),
+            borderSide: BorderSide(width: 1, color: MyColor.orangeDark),
           ),
           errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -91,7 +91,7 @@ class MyThemes {
 
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(8)),
-            borderSide: BorderSide(width: 1, color: MyColor.yellowColor),
+            borderSide: BorderSide(width: 1, color: MyColor.orangeDark),
           ),
 
           // filled: true,

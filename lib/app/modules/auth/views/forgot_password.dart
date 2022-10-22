@@ -20,7 +20,7 @@ class ForgotPasswordView extends GetView<AuthController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: const Color(0xffffffff),
+        //      backgroundColor: const Color(0xffffffff),
         body: Form(
           key: _formKey,
           child: Column(
@@ -74,7 +74,7 @@ class ForgotPasswordView extends GetView<AuthController> {
                                       horizontal: 12),
                                   child: SvgPicture.asset(
                                     'assets/email.svg',
-                                    color: value ? MyColor.borderColor : null,
+                                    color: value ? MyColor.orangeLight : null,
                                   ),
                                 ),
                               ),

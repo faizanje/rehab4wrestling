@@ -5,6 +5,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:rehab4wrestling/app/data/FirebaseService.dart';
 import 'package:rehab4wrestling/app/data/constants/constants.dart';
+import 'package:rehab4wrestling/app/data/models/args/BodyPartArgs.dart';
 import 'package:rehab4wrestling/app/routes/app_pages.dart';
 import 'package:rehab4wrestling/packages/human_body_selector/human_body_selector.dart';
 import 'package:rehab4wrestling/packages/human_body_selector/svg_painter/constant.dart';
@@ -19,7 +20,7 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffEEEFFF),
+      // backgroundColor: const Color(0xffEEEFFF),
       appBar: AppBar(
         title: const Text(
           "Select Body part",
@@ -72,14 +73,19 @@ class HomeView extends GetView<HomeController> {
                   // initialPainLevels: [],
                   // initialSelectedPartsList: [],
                   strokeColor: Colors.black87,
-                  selectedColor: MyColor.borderColor,
+                  selectedColor: MyColor.orangeLight,
                   // dotColor: Colors.black,
                   // initialPainLevels: [],
                   onChanged: (bodyPart, active) {
                     // print(active?.title);
                     // controller.injuryName.value = active!.title;
                     final bodyPartKey = kBodyPathToDbPathMap[active!.title]!;
-                    Get.toNamed(Routes.INJURY_CURE, arguments: bodyPartKey);
+                    Get.toNamed(
+                      Routes.INJURY_CURE,
+                      arguments: BodyPartArgs(
+                          selectedBodyPartName: active.title,
+                          bodyPartKey: bodyPartKey),
+                    );
                     // Future.delayed(const Duration(milliseconds: 500), () {
                     //
                     // });

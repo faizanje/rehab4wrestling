@@ -24,7 +24,7 @@ class FullScreenVideoPlayerView
           },
         ),
         title: const Text(
-          'Rehab Video',
+          'Now playing',
           style: TextStyle(
               color: Colors.black87, fontSize: 22, fontWeight: FontWeight.bold),
         ),
@@ -55,6 +55,7 @@ class FullScreenVideoPlayerView
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   RichText(
                     text: TextSpan(

@@ -22,7 +22,7 @@ class LoginView extends GetView<AuthController> {
     return SafeArea(
       child: Scaffold(
         // resizeToAvoidBottomInset: false,
-        backgroundColor: const Color(0xffffffff),
+        //   backgroundColor: const Color(0xffffffff),
         body: Form(
           key: _formKey,
           child: Column(
@@ -77,7 +77,7 @@ class LoginView extends GetView<AuthController> {
                                       horizontal: 12),
                                   child: SvgPicture.asset(
                                     'assets/email.svg',
-                                    color: value ? MyColor.borderColor : null,
+                                    color: value ? MyColor.orangeLight : null,
                                   ),
                                 ),
                               ),
@@ -127,7 +127,7 @@ class LoginView extends GetView<AuthController> {
                                         child: SvgPicture.asset(
                                           'assets/password.svg',
                                           color: value
-                                              ? MyColor.borderColor
+                                              ? MyColor.orangeLight
                                               : null,
                                         ),
                                       )),
@@ -145,7 +145,7 @@ class LoginView extends GetView<AuthController> {
                               "Forgot password?",
                               style: TextStyle(
                                   fontWeight: FontWeight.w600,
-                                  color: MyColor.yellowColor,
+                                  color: MyColor.orangeDark,
                                   fontSize: 14),
                             )),
                       ),
@@ -189,7 +189,7 @@ class LoginView extends GetView<AuthController> {
                                     text: ' Signup',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        color: MyColor.yellowColor)),
+                                        color: MyColor.orangeDark)),
                               ],
                             ),
                           ),

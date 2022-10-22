@@ -4,9 +4,11 @@ import 'package:flutter_expanded_tile/flutter_expanded_tile.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
+import 'package:rehab4wrestling/app/data/models/args/BodyPartArgs.dart';
 import 'package:rehab4wrestling/app/data/models/args/VideosListArgs.dart';
 import 'package:rehab4wrestling/app/modules/home/controllers/home_controller.dart';
 import 'package:rehab4wrestling/app/routes/app_pages.dart';
+import 'package:rehab4wrestling/packages/human_body_selector/svg_painter/constant.dart';
 import 'package:rehab4wrestling/themes/app_theme.dart';
 import 'package:rehab4wrestling/utils/constant.dart';
 import 'package:rehab4wrestling/widgets/animated_button.dart';
@@ -20,17 +22,17 @@ class InjuryCureView extends GetView<InjuryCureController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffEEEFFF),
+      //    backgroundColor: Colors.grey.withOpacity(0.1),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
           onPressed: () {
             Get.back();
           },
         ),
-        title: const Text(
-          'Injuries list',
+        title: Text(
+          '${kBodyPartNameMap[controller.args.selectedBodyPartName]!} injuries',
           style: TextStyle(
               color: Colors.black87, fontSize: 22, fontWeight: FontWeight.bold),
         ),
@@ -103,7 +105,7 @@ class InjuryCureView extends GetView<InjuryCureController> {
                 child: ExpansionTile(
                   leading: const Icon(
                     Icons.sports_handball_sharp,
-                    color: MyColor.yellowColor,
+                    color: MyColor.orangeDark,
                   ),
                   backgroundColor: Colors.white,
                   collapsedBackgroundColor: Colors.white,
@@ -134,14 +136,15 @@ class InjuryCureView extends GetView<InjuryCureController> {
                             height: 42,
                             width: double.infinity,
                             decoration: BoxDecoration(
-                              boxShadow: const [
-                                BoxShadow(
-                                    color: Colors.black26,
-                                    offset: Offset(0, 4),
-                                    blurRadius: 5.0)
-                              ],
+                              // boxShadow: const [
+                              //   BoxShadow(
+                              //       color: Colors.black26,
+                              //       offset: Offset(0, 4),
+                              //       blurRadius: 5.0)
+                              // ],
                               gradient: MyColor.linearGradient,
-                              color: Colors.deepPurple.shade300,
+                              // color:
+                              //     Colors.deepOrange.shade300.withOpacity(0.5),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: ElevatedButton(
@@ -157,7 +160,7 @@ class InjuryCureView extends GetView<InjuryCureController> {
                               onPressed: () {
                                 Get.toNamed(Routes.VIDEOS_LIST,
                                     arguments: VideosListArgs(
-                                        bodyPartKey: controller.bodyPartKey,
+                                        bodyPartArgs: controller.args,
                                         injury: injury));
                                 // Get.toNamed(Routes.FULL_SCREEN_VIDEO_PLAYER);
                               },

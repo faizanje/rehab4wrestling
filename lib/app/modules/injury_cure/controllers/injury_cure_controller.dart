@@ -1,11 +1,14 @@
 import 'package:get/get.dart';
+import 'package:rehab4wrestling/app/data/models/args/BodyPartArgs.dart';
 
 class InjuryCureController extends GetxController {
   late final String bodyPartKey;
+  late final BodyPartArgs args;
 
   @override
   void onInit() {
-    bodyPartKey = Get.arguments;
+    args = Get.arguments;
+    bodyPartKey = args.bodyPartKey;
     super.onInit();
   }
 
@@ -16,5 +19,4 @@ class InjuryCureController extends GetxController {
 
   @override
   void onClose() {}
-
 }

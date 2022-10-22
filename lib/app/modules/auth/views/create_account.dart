@@ -14,14 +14,13 @@ import 'package:rehab4wrestling/widgets/animated_button.dart';
 import 'package:rehab4wrestling/widgets/auth_header.dart';
 
 class CreateAccountView extends GetView<AuthController> {
-   CreateAccountView({Key? key}) : super(key: key);
+  CreateAccountView({Key? key}) : super(key: key);
 
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   AuthController controller = Get.put(AuthController());
-
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +36,7 @@ class CreateAccountView extends GetView<AuthController> {
         //     },
         //   ),
         // ),
-        backgroundColor: const Color(0xffffffff),
+        //   backgroundColor: const Color(0xffffffff),
         body: Form(
           key: _formKey,
           child: Column(
@@ -91,7 +90,7 @@ class CreateAccountView extends GetView<AuthController> {
                                       horizontal: 12),
                                   child: SvgPicture.asset(
                                     'assets/email.svg',
-                                    color: value ? MyColor.borderColor : null,
+                                    color: value ? MyColor.orangeLight : null,
                                   ),
                                 ),
                               ),
@@ -119,8 +118,8 @@ class CreateAccountView extends GetView<AuthController> {
                                       hintText: "Password",
                                       labelText: "Password",
                                       prefixIconConstraints:
-                                      const BoxConstraints(
-                                          minWidth: 0, minHeight: 0),
+                                          const BoxConstraints(
+                                              minWidth: 0, minHeight: 0),
                                       suffixIcon: Obx(() {
                                         return IconButton(
                                           icon: Icon(controller.isHide.isTrue
@@ -129,9 +128,9 @@ class CreateAccountView extends GetView<AuthController> {
                                           onPressed: () {
                                             controller.isHide.isTrue
                                                 ? controller.isHide.value =
-                                            false
+                                                    false
                                                 : controller.isHide.value =
-                                            true;
+                                                    true;
                                           },
                                         );
                                       }),
@@ -141,7 +140,7 @@ class CreateAccountView extends GetView<AuthController> {
                                         child: SvgPicture.asset(
                                           'assets/password.svg',
                                           color: value
-                                              ? MyColor.borderColor
+                                              ? MyColor.orangeLight
                                               : null,
                                         ),
                                       )),
@@ -149,7 +148,6 @@ class CreateAccountView extends GetView<AuthController> {
                               }),
                             );
                           }),
-
                       const SizedBox(
                         height: 36,
                       ),
@@ -159,10 +157,9 @@ class CreateAccountView extends GetView<AuthController> {
                           if (_formKey.currentState!.validate()) {
                             controller.flag.value = true;
                             print(emailController.text);
-                            controller.signUpUser(emailController.text,
-                                passwordController.text);
-                            Future.delayed(const Duration(seconds: 1), () {
-                            });
+                            controller.signUpUser(
+                                emailController.text, passwordController.text);
+                            Future.delayed(const Duration(seconds: 1), () {});
                           } else {
                             controller.flag.value = false;
                           }
@@ -190,7 +187,7 @@ class CreateAccountView extends GetView<AuthController> {
                                     text: ' Login!',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        color: MyColor.yellowColor)),
+                                        color: MyColor.orangeDark)),
                               ],
                             ),
                           ),
@@ -206,6 +203,4 @@ class CreateAccountView extends GetView<AuthController> {
       ),
     );
   }
-  }
-
-
+}

@@ -30,4 +30,5 @@ const fullBody576URLList = [
 
 class MyColors {
   static Color blue = const Color(0xff5B86E5);
+  static Color orangeDark = const Color(0xffcc9900);
 }
