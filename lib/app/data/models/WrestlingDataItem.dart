@@ -18,8 +18,8 @@ class WrestlingDataItem {
 
   Map<String, dynamic> toJson() {
     return {
-      "name": this.name,
-      "data": this.data,
+      "name": name,
+      "data": data,
     };
   }
 
@@ -44,8 +44,8 @@ class Data {
 
   Map<String, dynamic> toJson() {
     return {
-      "videos": this.videos,
-      "injuries": jsonEncode(this.injuries),
+      "videos": videos,
+      "injuries": jsonEncode(injuries),
     };
   }
 
@@ -71,8 +71,8 @@ class Videos {
 
   Map<String, dynamic> toJson() {
     return {
-      "rehab": jsonEncode(this.rehab),
-      "wrestling": jsonEncode(this.wrestling),
+      "rehab": jsonEncode(rehab),
+      "wrestling": jsonEncode(wrestling),
     };
   }
 
@@ -102,8 +102,8 @@ class Rehab {
 
   Map<String, dynamic> toJson() {
     return {
-      "name": this.name,
-      "link": this.link,
+      "name": name,
+      "link": link,
     };
   }
 
@@ -129,8 +129,8 @@ class Wrestling {
 
   Map<String, dynamic> toJson() {
     return {
-      "name": this.name,
-      "link": this.link,
+      "name": name,
+      "link": link,
     };
   }
 
@@ -151,9 +151,9 @@ class Injuries {
 
   Map<String, dynamic> toJson() {
     return {
-      "parent": this.parent,
-      "name": this.name,
-      "description": this.description,
+      "parent": parent,
+      "name": name,
+      "description": description,
     };
   }
 
