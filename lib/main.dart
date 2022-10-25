@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         title: "Application",
         initialRoute: Routes.HOME,
         getPages: AppPages.routes,
-        defaultTransition: Transition.rightToLeft,
+        defaultTransition: Transition.cupertino,
         theme: MyThemes().themeData,
         builder: EasyLoading.init(),
       );
@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
         title: "Application",
         initialRoute: AppPages.INITIAL,
         getPages: AppPages.routes,
-        defaultTransition: Transition.rightToLeft,
+        defaultTransition: Transition.cupertino,
         theme: MyThemes().themeData,
         builder: EasyLoading.init(),
       );

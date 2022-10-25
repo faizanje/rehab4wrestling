@@ -43,12 +43,15 @@ class FullScreenVideoPlayerView
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20),
-              child: Text(
-                controller.args.video.name,
-                style: const TextStyle(
-                    color: Colors.black87,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
+              child: Hero(
+                tag: controller.args.video.name,
+                child: Text(
+                  controller.args.video.name,
+                  style: const TextStyle(
+                      color: Colors.black87,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
             ),
             Padding(

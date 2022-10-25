@@ -167,7 +167,7 @@ class InjuryCureView extends GetView<InjuryCureController> {
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: const [
-                                  Icon(Icons.info),
+                                  Icon(Icons.video_library),
                                   Padding(
                                     padding:
                                         EdgeInsets.symmetric(horizontal: 5.0),

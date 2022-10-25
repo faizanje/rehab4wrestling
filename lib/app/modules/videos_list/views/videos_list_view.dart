@@ -31,7 +31,7 @@ class VideosListView extends GetView<VideosListController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //  backgroundColor: const Color(0xffEEEFFF),
+      // backgroundColor: Colors.grey.withOpacity(0.1),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leading: IconButton(
@@ -146,11 +146,14 @@ class RehabVideosList extends StatelessWidget {
                   ),
                   // backgroundColor: Colors.white,
                   // collapsedBackgroundColor: Colors.white,
-                  title: Text(
-                    video.name,
-                    style: const TextStyle(
-                      color: Colors.black87,
-                      fontSize: 16,
+                  title: Hero(
+                    tag: video.name,
+                    child: Text(
+                      video.name,
+                      style: const TextStyle(
+                        color: Colors.black87,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),
@@ -207,11 +210,14 @@ class WrestlingVideosList extends StatelessWidget {
                   ),
                   // backgroundColor: Colors.white,
                   // collapsedBackgroundColor: Colors.white,
-                  title: Text(
-                    video.name,
-                    style: const TextStyle(
-                      color: Colors.black87,
-                      fontSize: 16,
+                  title: Hero(
+                    tag: video.name,
+                    child: Text(
+                      video.name,
+                      style: const TextStyle(
+                        color: Colors.black87,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),

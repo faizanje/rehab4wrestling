@@ -4,7 +4,8 @@ import 'package:rehab4wrestling/utils/constant.dart';
 
 class MyThemes {
   ThemeData get themeData => ThemeData(
-        scaffoldBackgroundColor: Colors.grey.withOpacity(0.1),
+        scaffoldBackgroundColor: Colors.grey.shade200,
+        // backgroundColor: Colors.grey.withOpacity(0.1),
         appBarTheme: const AppBarTheme(
           toolbarHeight: 50,
           color: Colors.transparent,
