@@ -36,7 +36,7 @@ class WelcomeView extends GetView<WelcomeController> {
                       // ),
                     ),
                     const Text(
-                      '(Est. 1996)',
+                      'Est. 1996',
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
